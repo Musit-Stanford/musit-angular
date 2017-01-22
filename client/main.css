@@ -1,4 +1,49 @@
 /* CSS declarations go here */
+li {
+  list-style: none;
+}
+.playlistContainer {
+  
+}
+
+.playlistContainer li {
+  margin-bottom: 15px;
+}
+
+.playlistContainer h1 {
+  font-size: 48px;
+}
+
+.playlistContainer span {
+  font-size: 36px;
+}
+
+header h1 {
+  margin-bottom: 25px;
+  border-bottom: solid black;
+  padding-bottom: 15px;
+}
+
+.trend .img-responsive {
+  margin: 0 auto;
+}
+
+.trend {
+  height: 335px;
+  width: 335px;
+}
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.trend-description {
+  resize: vertical;
+  overflow: auto;
+}
+
 h1, h2 {
 	margin: 0;
 }
