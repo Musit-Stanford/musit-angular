@@ -3,17 +3,17 @@
 </header>
  
 <ul>
-  <div class="recommendation" ng-repeat="rec in $ctrl.recs">
+  <div class="recommendation" ng-repeat="rec in $ctrl.users">
   	<div class="album-art">
-  		<img src="{{rec.img}}"/>
+  		<img src="{{rec.recs.img}}"/>
 	</div>
   	<div class="details">
-  	    <h1>{{rec.recm.track}}</h1>
-	    <h2>{{rec.recm.artist}}</h2>
-	    <h3>{{rec.friend.name}}</h3>
+  	    <h1>{{rec.recs.recm.track}}</h1>
+	    <h2>{{rec.recs.recm.artist}}</h2>
+	    <h3>{{rec.name}}</h3>
   	</div>
   	<div class="recommender">
-  	    <img src="{{rec.friend.img}}"/>
+  	    <img src="{{rec.img}}"/>
   	</div>
   </div>
 </ul>
