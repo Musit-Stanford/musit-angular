@@ -1,0 +1,24 @@
+<header>
+  <h1 class='text-center'>Playlists</h1>
+</header>
+
+<ul class="playlistContainer">
+  <li ng-repeat="playlist in $ctrl.playlists">
+    <div class="row">
+      <div class="col-xs-3">
+        <img src="{{playlist.albumArtURL}}" class="img-responsive">
+      </div>
+      <div class="col-xs-9">
+        <h1>{{playlist.title}}</h1>
+        <span>{{playlist.recCount}} items</span>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<form class="new-task" ng-submit="$ctrl.addPlaylist($ctrl.newPlaylist)">
+  <input ng-model="$ctrl.newPlaylist.title" type="text" name="title" placeholder="Type to add new title" />
+  <input ng-model="$ctrl.newPlaylist.recCount" type="text" name="recCount" placeholder="Type to add count" />
+  <input ng-model="$ctrl.newPlaylist.albumArtURL" type="text" name="albumArtURL" placeholder="Type to add album art" />
+  <input type="submit"/>
+</form>
