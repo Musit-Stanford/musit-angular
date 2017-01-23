@@ -63,4 +63,25 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
     template: '<playlists></playlists>'
   }
   $stateProvider.state(playlistsState);
+
+  var createRecommendationState = {
+    name: 'createRecommendation',
+    url: '/createRecommendation',
+    template: '<create-recommendation></create-recommendation>'
+  }
+  $stateProvider.state(createRecommendationState);
+
+  var friendListState = {
+    name: 'friendList',
+    url: '/friendList',
+    template: '<friend-list></friend-list>'
+  }
+  $stateProvider.state(friendListState);
+
+  var successState = {
+    name: 'success',
+    url: '/success',
+    template: '<success></success>'
+  }
+  $stateProvider.state(successState);
 }

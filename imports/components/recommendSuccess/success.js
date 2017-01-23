@@ -3,9 +3,11 @@ import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users.js';
 
 import template from './success.html';
+import uiRouter from 'angular-ui-router';
  
 class SuccessCtrl {
-  constructor($scope) {
+  constructor($scope, $stateParams) {
+    'ngInject';
     $scope.viewModel(this);
  
     this.helpers({
@@ -21,9 +23,10 @@ class SuccessCtrl {
 }
  
 export default angular.module('success', [
-  angularMeteor
+  angularMeteor,
+  uiRouter
 ])
   .component('success', {
     templateUrl: 'imports/components/recommendSuccess/success.html',
-    controller: ['$scope', SuccessCtrl]
+    controller: ['$scope', '$stateParams', SuccessCtrl]
   });

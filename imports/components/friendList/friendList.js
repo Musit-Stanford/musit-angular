@@ -3,9 +3,11 @@ import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users.js';
 
 import template from './friendList.html';
+import uiRouter from 'angular-ui-router';
  
 class FriendListCtrl {
-  constructor($scope) {
+  constructor($scope, $stateParams) {
+    'ngInject';
     $scope.viewModel(this);
  
     this.helpers({
@@ -21,9 +23,10 @@ class FriendListCtrl {
 }
  
 export default angular.module('friendList', [
-  angularMeteor
+  angularMeteor,
+  uiRouter
 ])
   .component('friendList', {
     templateUrl: 'imports/components/friendList/friendList.html',
-    controller: ['$scope', FriendListCtrl]
+    controller: ['$scope', '$stateParams', FriendListCtrl]
   });
