@@ -19,9 +19,9 @@ li {
 }
 
 header h1 {
-  margin-bottom: 25px;
-  border-bottom: solid black;
   padding-bottom: 15px;
+  text-transform: uppercase; 
+  font-size: 30px;
 }
 
 .trend .img-responsive {
@@ -49,7 +49,7 @@ h1, h2 {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Quicksand', sans-serif !important;
     background-color: #95a5a6;
     background-attachment: fixed;
  
@@ -73,7 +73,7 @@ body {
 }
  
 header {
-    background: #ecf0f1;
+    background: #f7f7f7;
     color: black;
     text-align: center;
     padding: 20px 15px 15px 15px;
@@ -97,46 +97,60 @@ ul {
 }
 
 img {
-	width: 70px;
-	height: 70px;
+	width: 80px;
+	height: 80px;
 }
 
 .recommendation img {
-	margin-top: 1em;
+	margin-top: .5em;
 	order: 1;
+	border-radius: .5em;
 }
 
 .album-art {
-	flex-grow: 1;
+	width: 15%; 
 	text-align: center;
 }
 
 .details {
 	order: 2;
-	flex-grow: 3;
+	flex-grow: 2;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 .details h1 {
-	font-size: 1.5em;
+	margin-top: 10px;
+	font-size: 1.8em;
+	font-weight: bolder;
+	margin-bottom: 0;
 }
 
 .details h2 {
-	font-size: 1em;
+	margin-top: .3em;
+	font-size: .9em;
+	color: #7f8c8d;
 }
 
 .details h3 {
+	margin-top: 0;
 	font-size: .8em;
 }
 
 .recommender {
 	order: 3;
-	flex-grow: 1;
+	width: 30%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.recommender h3 {
+	font-size: 1em;
+	margin-top: 2.9em;
 }
 
 .recommender img {
 	border-radius: 3em;
-}
- 
+} 

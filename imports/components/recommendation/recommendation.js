@@ -4,7 +4,7 @@ import { Users } from '../../api/users.js';
 
 import template from './homeScreen.html';
  
-class MusitHomeCtrl {
+class RecommendationCtrl {
   constructor($scope) {
     $scope.viewModel(this);
  
@@ -20,10 +20,10 @@ class MusitHomeCtrl {
   }
 }
  
-export default angular.module('musitHome', [
+export default angular.module('musitRecommendCtrl', [
   angularMeteor
 ])
-  .component('musitHome', {
-    templateUrl: 'imports/components/views/homeScreen.html',
+  .component('musitRecommendCtrl', {
+    templateUrl: 'imports/components/recommendation/recommendation.html',
     controller: ['$scope', MusitHomeCtrl]
   });
