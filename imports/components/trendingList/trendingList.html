@@ -5,16 +5,13 @@
 <ul>
   <div class="trending-genre"><h1>All Genres</h1></div>
   <div class="recommendation" ng-repeat="rec in $ctrl.users" ng-click="$ctrl.viewRecommendation(rec)">
+  <h1 class="track-num">{{$index + 1}}</h1>
   	<div class="album-art">
   		<img src="{{rec.recs.img}}"/>
 	</div>
   	<div class="details">
   	   <h1>{{rec.recs.recm.track}}</h1>
 	     <h2>{{rec.recs.recm.artist}}</h2>
-  	</div>
-  	<div class="recommender">
-	  	<h3>❤️ {{rec.name}}</h3>
-  	    <img src="{{rec.img}}"/>
   	</div>
   </div>
 </ul>

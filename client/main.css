@@ -59,6 +59,14 @@ header h1 {
 	justify-content: space-around;
 }
 
+.trending-genre {
+	background: #2980b9;
+	color: white;
+	text-align: center;
+	height: 7rem;
+	padding-top: 1.4rem;
+}
+
 .absolute-center { 
 	text-align: center;
 }
@@ -153,6 +161,13 @@ body {
 .new-recommendation h1 {
 	margin-bottom: 5rem;
 	font-size: 5rem;
+}
+
+.track-num {
+	margin-top: 2em;
+	margin-right: 1em;
+	color: #2980b9;
+	font-weight: bold;
 }
 
 .messager {
