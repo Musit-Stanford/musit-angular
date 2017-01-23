@@ -1,5 +1,25 @@
+// musit.controller('TrendingCtrl', ['$scope', function($scope) {
+//   $scope.trends = [
+//     { 
+//         text: "Rap", 
+//         imgURL: "http://www.kansascitypos.com/tt/icon.png", 
+//         color: "#F1D087"
+//       }, { 
+//         text: 'Pop', 
+//         imgURL: 'http://pngimg.com/upload/small/microphone_PNG7928.png', 
+//         color: "#A0F3CF"
+//      }, { 
+//        text: 'Rock', 
+//        imgURL: 'https://www.shareicon.net/data/128x128/2016/09/27/836153_festival_512x512.png',
+//        color: "#A258BE"
+//     }
+//   ]
+// }]);
+
+
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router'
 import template from './trending.html';
 import {
   Trends
@@ -47,9 +67,21 @@ class TrendingCtrl {
 }
 
 export default angular.module('trending', [
-  angularMeteor
+  angularMeteor,
+  uiRouter
 ])
   .component('trending', {
     templateUrl: 'imports/components/trending/trending.html',
     controller: ['$scope', TrendingCtrl] // Note to self: Injecting '$scope' into the controller.
-  });
+  })
+
+  .config(config);
+ 
+function config($stateProvider) {
+  'ngInject';
+  $stateProvider
+    .state('trends', {
+      url: '/trends',
+      template: '<trending></trending>'
+    });
+};

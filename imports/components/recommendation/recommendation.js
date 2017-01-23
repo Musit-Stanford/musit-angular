@@ -3,14 +3,18 @@ import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users.js';
 
 import template from './recommendation.html';
+import uiRouter from 'angular-ui-router';
  
 class RecommendationCtrl {
-  constructor($scope) {
+  constructor($scope, $stateParams) {
+    'ngInject'
+
+
     $scope.viewModel(this);
  
     this.helpers({
       users() {
-        return Users.find({"name": "James Geary"});
+        return Users.find({"name": $stateParams.recId});
       }
     })
   }
@@ -21,9 +25,10 @@ class RecommendationCtrl {
 }
  
 export default angular.module('recommend', [
-  angularMeteor
+  angularMeteor,
+  uiRouter
 ])
   .component('recommend', {
     templateUrl: 'imports/components/recommendation/recommendation.html',
-    controller: ['$scope', RecommendationCtrl]
+    controller: ['$scope', '$stateParams', RecommendationCtrl]
   });
