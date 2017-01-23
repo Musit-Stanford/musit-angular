@@ -4,11 +4,11 @@ import uiRouter from 'angular-ui-router';
 
 import template from './musit.html';
 import Trending from '../trending/trending';
-import playlist from '../imports/components/playlist/playlist.js'; 
-import createRecommendation from '../imports/components/createRecommendation/createRecommendation';
-import friendList from '../imports/components/friendList/friendList';
-import trendingList from '../imports/components/trendingList/trendingList';
-import success from '../imports/components/recommendSuccess/success';
+import playlist from '../playlist/playlist.js'; 
+import createRecommendation from '../createRecommendation/createRecommendation';
+import friendList from '../friendList/friendList';
+import trendingList from '../trendingList/trendingList';
+import success from '../recommendSuccess/success';
 
 import { name as Recommend } from '../recommend/recommend';
 import Recommendation from '../recommendation/recommendation';
