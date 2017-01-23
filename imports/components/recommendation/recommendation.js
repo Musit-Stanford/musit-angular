@@ -24,11 +24,11 @@ class RecommendationCtrl {
   }
 }
  
-export default angular.module('recommend', [
+export default angular.module('recommendation', [
   angularMeteor,
   uiRouter
 ])
-  .component('recommend', {
+  .component('recommendation', {
     templateUrl: 'imports/components/recommendation/recommendation.html',
     controller: ['$scope', '$stateParams', RecommendationCtrl]
   });

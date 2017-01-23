@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users.js';
 
-import template from './homeScreen.html';
+import template from './home.html';
 import uiRouter from 'angular-ui-router';
  
 class MusitHomeCtrl {
@@ -21,22 +21,12 @@ class MusitHomeCtrl {
   }
 }
  
-export default angular.module('musitHome', [
+export default angular.module('home', [
   angularMeteor,
   uiRouter
 ])
-  .component('musitHome', {
-    templateUrl: 'imports/components/views/homeScreen.html',
-    controller: ['$scope',MusitHomeCtrl]
-  })
+  .component('home', {
+    templateUrl: 'imports/components/home/home.html',
+    controller: ['$scope', MusitHomeCtrl]
+  });
 
-  .config(config);
- 
-function config($stateProvider) {
-  'ngInject';
-  $stateProvider
-    .state('musitHome', {
-      url: '/musit-home',
-      template: '<musit-home></musit-home>'
-    });
-};;

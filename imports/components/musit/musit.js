@@ -10,9 +10,8 @@ import friendList from '../friendList/friendList';
 import trendingList from '../trendingList/trendingList';
 import success from '../recommendSuccess/success';
 
-import { name as Recommend } from '../recommend/recommend';
 import Recommendation from '../recommendation/recommendation';
-import MusitHome from '../views/homeScreen';
+import MusitHome from '../home/home';
 
 class Musit {}
 
@@ -42,12 +41,19 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
 
   $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/musit-home');
+  $urlRouterProvider.otherwise('/');
+
+  var homeState = {
+    name: 'home',
+    url: '/',
+    template: '<home></home>'
+  }
+  $stateProvider.state(homeState);
 
   var recommendationState = {
     name: 'recommendation',
     url: '/recommendation/:recId',
-    template: '<recommend></recommend>'
+    template: '<recommendation></recommendation>'
   }
   $stateProvider.state(recommendationState);
 
