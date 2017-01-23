@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users.js';
 
-import template from './homeScreen.html';
+import template from './recommendation.html';
  
 class RecommendationCtrl {
   constructor($scope) {
@@ -10,7 +10,7 @@ class RecommendationCtrl {
  
     this.helpers({
       users() {
-        return Users.find({});
+        return Users.find({"name": "James Geary"});
       }
     })
   }
@@ -20,10 +20,10 @@ class RecommendationCtrl {
   }
 }
  
-export default angular.module('musitRecommendCtrl', [
+export default angular.module('recommend', [
   angularMeteor
 ])
-  .component('musitRecommendCtrl', {
+  .component('recommend', {
     templateUrl: 'imports/components/recommendation/recommendation.html',
-    controller: ['$scope', MusitHomeCtrl]
+    controller: ['$scope', RecommendationCtrl]
   });

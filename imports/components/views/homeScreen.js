@@ -16,7 +16,7 @@ class MusitHomeCtrl {
   }
 
   viewRecommendation(rec) {
-    console.log(rec);
+    /* route to new view */
   }
 }
  
