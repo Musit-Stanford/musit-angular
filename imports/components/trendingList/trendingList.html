@@ -1,8 +1,9 @@
 <header>
-  <h1>Recommendations</h1>
+  <h1>San Francisco</h1>
 </header>
  
 <ul>
+  <div class="trending-genre"><h1>All Genres</h1></div>
   <div class="recommendation" ng-repeat="rec in $ctrl.users" ng-click="$ctrl.viewRecommendation(rec)">
   	<div class="album-art">
   		<img src="{{rec.recs.img}}"/>

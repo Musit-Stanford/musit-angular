@@ -1,6 +1,5 @@
 <header>
-  <h1>{{$ctrl.users[0].recs.recm.track}}</h1>
-  <h2>{{$ctrl.users[0].recs.recm.artist}}</h2>
+  <h1>Sent</h1>
 </header>
  
 <div class="song-container">
@@ -13,9 +12,8 @@
   </div>
   <div class="user-information">
     <h3>This is great!</h3>
-    <div class="song-recommender">
+    <div ng-repeat="friends in $ctrl.users" class="song-recommender">
       <img src="{{$ctrl.users[0].img}}"/>
-      <h3>{{$ctrl.users[0].name}}</h3>
     </div>
   </div>
 </div>

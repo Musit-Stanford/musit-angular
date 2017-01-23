@@ -1,0 +1,19 @@
+<header>
+  <h1>Friends</h1>
+</header>
+ 
+<ul>
+  <div class="friend" ng-repeat="rec in $ctrl.users" ng-click="$ctrl.viewRecommendation(rec)">
+    <div class="recommender friend-option">
+      <img src="{{rec.img}}"/>
+      <h3 style="order: 1" >{{rec.name}}</h3>
+    </div>
+    <div class="playlist-options">
+      <h1>🙋‍♂️</h1>
+    </div>
+  </div>
+</ul>
+
+<div class="submit-footer">
+  <h1>Send</h1>
+</div>
