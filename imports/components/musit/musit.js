@@ -28,7 +28,8 @@ export default angular.module(name, [
   createRecommendation.name,
   friendList.name,
   trendingList.name,
-  success.name
+  success.name,
+  playlist.name
 ]).component(name, {
   templateUrl: template,
   controllerAs: name,
@@ -49,4 +50,11 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
     template: '<recommend></recommend>'
   }
   $stateProvider.state(recommendationState);
+
+  var playlistsState = {
+    name: 'playlists',
+    url: '/playlists/:recId',
+    template: '<playlists></playlists>'
+  }
+  $stateProvider.state(playlistsState);
 }

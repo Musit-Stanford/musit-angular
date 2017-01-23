@@ -1,12 +1,13 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import template from './playlist.html';
-import {
-  Playlists
-}
-from '../../api/playlists.js';
+import { Playlists } from '../../api/playlists.js';
+import uiRouter from 'angular-ui-router';
+
 class PlaylistCtrl {
-  constructor($scope) {
+  constructor($scope, $stateParams) {
+    'ngInject'
+
     $scope.viewModel(this);
 
     this.helpers({
@@ -33,9 +34,10 @@ class PlaylistCtrl {
 }
 
 export default angular.module('playlist', [
-  angularMeteor
+  angularMeteor,
+  uiRouter
 ])
   .component('playlists', {
     templateUrl: 'imports/components/playlist/playlist.html',
-    controller: ['$scope', PlaylistCtrl] // Note to self: Injecting '$scope' into the controller.
+    controller: ['$scope', '$stateParams', PlaylistCtrl] // Note to self: Injecting '$scope' into the controller.
   });
