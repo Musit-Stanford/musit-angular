@@ -21,32 +21,86 @@ li {
 recommend header h1 {
 	padding-bottom: 5px;
 	margin: 0;
+	margin-top: 2rem;
+}
+
+success header h1 {
+	padding-bottom: 5px;
+	margin: 0;
+	margin-top: 3.5rem;
+	color: white;
+}
+
+success header {
+	background: #2ecc71;
 }
 
 header h1 {
   padding-bottom: 15px;
   text-transform: uppercase; 
-  font-size: 30px;
+  font-size: 36px;
+  margin-top: 33px;
+}
+
+.playlistContainer, .album-art {
+	margin-right: 30px;
 }
 
 .trend .img-responsive {
   margin: 0 auto;
 }
 
-.trend {
-  height: 335px;
-  width: 335px;
+.trend-container {
+	display: flex; 
+	flex-direction: row;
+	flex-wrap: wrap;
+	color: white;
+	background: #ecf0f1;
+	justify-content: space-around;
+}
+
+.trending-genre {
+	background: #2980b9;
+	color: white;
+	text-align: center;
+	height: 7rem;
+	padding-top: 1.4rem;
+}
+
+.absolute-center { 
+	text-align: center;
+}
+
+#playlist-title {
+	font-size: 5rem;
+}
+
+.single-trend {
+	padding: 10px;
+	width: 50%;
+	height: 40rem;
+	display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-trend h1 {
+	font-size: 56px;
 }
 
 .parent {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
 }
 
+.trend-image img {
+	max-width: 80px;
+}
+
 .trend-description {
-  resize: vertical;
-  overflow: auto;
+  flex: 0 1 50%;
 }
 
 h1, h2 {
@@ -55,7 +109,6 @@ h1, h2 {
 
 body {
     font-family: 'Quicksand', sans-serif !important;
-    background-color: #95a5a6;
     background-attachment: fixed;
  
     position: absolute;
@@ -68,8 +121,131 @@ body {
     margin: 0;
  
     font-size: 14px;
+    min-width: 550px;
+}
+
+.art-container {
+	order: 1;
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 5em;
+}
+
+.art-container img {
+	max-width: 100%;
+	border-radius: 1em;
+	box-shadow: 0 0 5px #888888;
+}
+
+.recview {
+	width: 45%;
+	margin-top: 4rem;
+}
+
+.new-recommendation {
+	display: flex; 
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: center;
+	margin-top: 8rem;
 }
  
+.new-recommendation input {
+	height: 10rem;
+	margin: 3rem;
+	margin-left: 5rem;
+	font-size: 6rem;
+	text-align: center;
+}
+
+.new-recommendation h1 {
+	margin-bottom: 5rem;
+	font-size: 5rem;
+}
+
+.track-num {
+	margin-top: 2em;
+	margin-right: 1em;
+	color: #2980b9;
+	font-weight: bold;
+}
+
+.messager {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 4rem;
+    margin: 5rem;
+    margin-top: 8.5rem;
+}
+
+.submit-footer {
+	position: fixed;
+	bottom: 0;
+	height: 20rem;
+	background: #2ecc71;
+	text-align: center;
+	color: white;
+	width: 100%;
+	font-size: 5rem;
+}
+
+.submit-footer h1 {
+	font-size: 7rem;
+	margin-top: 6rem;
+}
+
+.song-container {
+	display: flex; 
+	flex-direction: column; 
+	background: white;
+}
+
+.song-information {
+	order: 2;
+	text-align: center;
+	margin-top: 5rem;
+}
+
+.song-information h1 {
+	margin-bottom: 1rem;
+	font-size: 5em;
+}
+
+.song-information h2 {
+	font-size: 3em;
+	color: #e74c3c;
+	margin-top: 2rem;
+	font-weight: bold;
+}
+
+.user-information {
+	order: 3;
+	text-align: center;
+	margin-top: 16rem;
+	font-size: 4rem;
+}
+
+.user-information h3 {
+	font-size: 44px;
+}
+
+.song-recommender {
+	margin-top: 11rem;
+}
+
+.song-recommender img {
+	width: 140px;
+	height: 140px;
+	margin-bottom: 2.5em;
+	text-align: center;
+	border-radius: 7rem;
+	margin-top: 1rem;
+}
+
+.song-recommender h3 {
+	font-size: 4rem;
+}
+
 .container {
     max-width: 100%;
     margin: 0 auto;
@@ -83,7 +259,7 @@ header {
     text-align: center;
     padding: 20px 15px 15px 15px;
     position: relative;
-    height: 88px;
+    height: 140px;
     font-size: .5rem;
 }
 
@@ -94,7 +270,7 @@ ul {
 .recommendation {
 	width: 90%;
 	margin: 0 auto; 
-	height: 100px; 
+	height: 200px; 
 	background: white;
 	margin-top: 10px;
 	display: flex;
@@ -102,16 +278,53 @@ ul {
 	border-bottom: 1px solid #ecf0f1;
 }
 
-img {
-	width: 80px;
-	height: 80px;
+.friend {
+	width: 90%;
+	margin: 0 auto; 
+	height: 200px; 
+	background: white;
+	margin-top: 10px;
+	display: flex;
+	border-bottom: 1px solid #ecf0f1;
+}
+
+.friend-option {
+	width: 60% !important; 
+	font-size: 3em;
+}
+
+.playlist-options {
+	order: 3;
+	width: 40%;
+	margin-top: 7rem;
+}
+
+.playlist-options h1 {
+	text-align: right; 
+	font-size: 5rem;
+}
+
+.friend-option h3 {
+	font-size: 1.2em !important;
+	margin-top: 6.5rem !important;
 }
 
 .recommendation img {
-	margin-top: .5em;
+	margin-top: 1.6em;
+	width: 140px;
+	height: 140px;
 	order: 1;
 	border-radius: .5em;
 }
+
+.friend img {
+	margin-top: 0.6em;
+	width: 140px;
+	height: 140px;
+	order: 1;
+	border-radius: .5em;
+}
+
 
 .album-art {
 	width: 15%; 
@@ -126,21 +339,21 @@ img {
 	justify-content: flex-start;
 }
 
-recommend h2 {
+recommend h2, success h2 {
 	font-size: 1.5rem;
 	margin: 0;
 }
 
 .details h1 {
-	margin-top: 10px;
-	font-size: 1.8em;
+	margin-top: 30px;
+	font-size: 3.5em;
 	font-weight: bolder;
 	margin-bottom: 0;
 }
 
 .details h2 {
-	margin-top: .3em;
-	font-size: .9em;
+	margin-top: 1em;
+    font-size: 1.9em;
 	color: #7f8c8d;
 }
 
@@ -151,17 +364,19 @@ recommend h2 {
 
 .recommender {
 	order: 3;
-	width: 30%;
+	width: 40%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
 
+
 .recommender h3 {
-	font-size: 1em;
-	margin-top: 2.9em;
+	font-size: 1.5em;
+	margin-top: 3.8em;
 }
 
 .recommender img {
-	border-radius: 3em;
+	border-radius: 5em;
 } 
+

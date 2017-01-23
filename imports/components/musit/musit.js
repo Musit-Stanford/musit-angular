@@ -4,6 +4,12 @@ import uiRouter from 'angular-ui-router';
 
 import template from './musit.html';
 import Trending from '../trending/trending';
+import playlist from '../imports/components/playlist/playlist.js'; 
+import createRecommendation from '../imports/components/createRecommendation/createRecommendation';
+import friendList from '../imports/components/friendList/friendList';
+import trendingList from '../imports/components/trendingList/trendingList';
+import success from '../imports/components/recommendSuccess/success';
+
 import { name as Recommend } from '../recommend/recommend';
 import Recommendation from '../recommendation/recommendation';
 import MusitHome from '../views/homeScreen';
@@ -18,7 +24,11 @@ export default angular.module(name, [
   uiRouter,
   Trending.name,
   MusitHome.name,
-  Recommendation.name
+  Recommendation.name,
+  createRecommendation.name,
+  friendList.name,
+  trendingList.name,
+  success.name
 ]).component(name, {
   templateUrl: template,
   controllerAs: name,

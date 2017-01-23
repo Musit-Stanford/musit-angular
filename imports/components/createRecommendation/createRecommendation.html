@@ -1,0 +1,19 @@
+<header>
+  <h1 class='text-center'>Recommend</h1>
+</header>
+
+<form class="new-recommendation" ng-submit="$ctrl.addPlaylist($ctrl.newPlaylist)">
+  <h1>Search by Track, Artist, or Album</h1>
+  <input ng-model="$ctrl.newPlaylist.title" type="text" name="title" placeholder="Song Title" />
+  <input ng-model="$ctrl.newPlaylist.recCount" type="text" name="recCount" placeholder="Artist" />
+</form>
+
+<div class="art-container recview">
+  <img src="https://f4.bcbits.com/img/a3100950102_10.jpg"/>
+</div>
+
+<textarea class="messager" name="comment" form="usrform" placeholder="    💬 Leave someone a message... "></textarea>
+
+<div class="submit-footer">
+  <h1>Choose Friends</h1>
+</div>

@@ -1,0 +1,17 @@
+<header>
+  <h1>San Francisco</h1>
+</header>
+ 
+<ul>
+  <div class="trending-genre"><h1>All Genres</h1></div>
+  <div class="recommendation" ng-repeat="rec in $ctrl.users" ng-click="$ctrl.viewRecommendation(rec)">
+  <h1 class="track-num">{{$index + 1}}</h1>
+  	<div class="album-art">
+  		<img src="{{rec.recs.img}}"/>
+	</div>
+  	<div class="details">
+  	   <h1>{{rec.recs.recm.track}}</h1>
+	     <h2>{{rec.recs.recm.artist}}</h2>
+  	</div>
+  </div>
+</ul>
