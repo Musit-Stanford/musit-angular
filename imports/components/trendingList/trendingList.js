@@ -3,9 +3,11 @@ import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users.js';
 
 import template from './trendingList.html';
+import uiRouter from 'angular-ui-router';
  
 class TrendingListCtrl {
-  constructor($scope) {
+  constructor($scope, $stateParams) {
+    'ngInject';
     $scope.viewModel(this);
  
     this.helpers({
@@ -19,11 +21,12 @@ class TrendingListCtrl {
     /* route to new view */
   }
 }
- 
+
 export default angular.module('trendingList', [
-  angularMeteor
+  angularMeteor,
+  uiRouter
 ])
   .component('trendingList', {
     templateUrl: 'imports/components/trendingList/trendingList.html',
-    controller: ['$scope', TrendingListCtrl]
+    controller: ['$scope', '$stateParams', TrendingListCtrl]
   });

@@ -27,7 +27,8 @@ import {
 from '../../api/trends.js';
 
 class TrendingCtrl {
-  constructor($scope) {
+  constructor($scope, $stateParams) {
+    'ngInject';
     $scope.viewModel(this);
 
     this.trends = [
@@ -92,16 +93,5 @@ export default angular.module('trending', [
 ])
   .component('trending', {
     templateUrl: 'imports/components/trending/trending.html',
-    controller: ['$scope', TrendingCtrl] // Note to self: Injecting '$scope' into the controller.
-  })
-
-  .config(config);
- 
-function config($stateProvider) {
-  'ngInject';
-  $stateProvider
-    .state('trends', {
-      url: '/trends',
-      template: '<trending></trending>'
-    });
-};
+    controller: ['$scope', '$stateParams', TrendingCtrl] // Note to self: Injecting '$scope' into the controller.
+  });

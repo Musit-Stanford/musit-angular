@@ -84,4 +84,18 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
     template: '<success></success>'
   }
   $stateProvider.state(successState);
+
+  var trendingState = {
+    name: 'trending',
+    url: '/trending',
+    template: '<trending></trending>'
+  }
+  $stateProvider.state(trendingState);
+
+  var trendingListState = {
+    name: 'trendingList',
+    url: '/trendingList',
+    template: '<trending-list></trending-list>'
+  }
+  $stateProvider.state(trendingListState);
 }
