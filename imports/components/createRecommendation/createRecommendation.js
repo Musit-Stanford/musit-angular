@@ -32,6 +32,16 @@ class RecommenderCtrl {
     this.newRecommendation.album = "";
     this.newRecommendation.message = "";
   }
+
+  submit(newPlaylist) {
+    if (newPlaylist === undefined || !('artist' in newPlaylist) || !('title' in newPlaylist)) {
+      alert("No recommendation provided.");
+      return;
+    }
+    window.localStorage.setItem('inProgressForm', JSON.stringify(newPlaylist));
+    window.location = "/friendList";
+  }
+
 }
 
 export default angular.module('createRecommendation', [

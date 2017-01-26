@@ -1,4 +1,8 @@
 /* CSS declarations go here */
+.selected {
+  border-color: green !important;
+  border-style: solid;
+}
 li {
   list-style: none;
 }
@@ -231,6 +235,7 @@ body {
 
 .song-recommender {
 	margin-top: 11rem;
+  display: inline-flex;
 }
 
 .song-recommender img {
@@ -240,6 +245,8 @@ body {
 	text-align: center;
 	border-radius: 7rem;
 	margin-top: 1rem;
+  margin-right: .5em;
+  margin-left: .5em;
 }
 
 .song-recommender h3 {
