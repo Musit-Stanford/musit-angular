@@ -9,7 +9,8 @@ import createRecommendation from '../createRecommendation/createRecommendation';
 import friendList from '../friendList/friendList';
 import trendingList from '../trendingList/trendingList';
 import success from '../recommendSuccess/success';
-
+import playlistList from '../playlistList/playlistList';
+import createPlaylist from '../createPlaylist/createPlaylist';
 import Recommendation from '../recommendation/recommendation';
 import MusitHome from '../home/home';
 
@@ -28,7 +29,9 @@ export default angular.module(name, [
   friendList.name,
   trendingList.name,
   success.name,
-  playlist.name
+  playlist.name,
+  createPlaylist.name,
+  playlistList.name
 ]).component(name, {
   templateUrl: template,
   controllerAs: name,
@@ -98,4 +101,18 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
     template: '<trending-list></trending-list>'
   }
   $stateProvider.state(trendingListState);
+
+  var playlistListState = {
+    name: 'playlistList',
+    url: '/playlistList/:playlistId',
+    template: '<playlist-list></playlist-list>'
+  }
+  $stateProvider.state(playlistListState);
+
+  var createPlaylistState = {
+    name: 'createPlaylist',
+    url: '/createPlaylist',
+    template: '<create-playlist></create-playlist>'
+  }
+  $stateProvider.state(createPlaylistState);
 }

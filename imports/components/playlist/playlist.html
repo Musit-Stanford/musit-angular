@@ -1,9 +1,10 @@
 <header>
   <h1 class='text-center'>Playlists</h1>
+  <h2 ui-sref="createPlaylist" class='add-playlist'>+</h2>
 </header>
 
 <ul class="playlistContainer">
-  <div class="recommendation" ng-repeat="playlist in $ctrl.playlists">
+  <div class="recommendation" ng-repeat="playlist in $ctrl.playlists" ui-sref="playlistList({playlistId: playlist.title})">
      <div class="album-art">
         <img src="{{playlist.albumArtURL}}"/>
     </div>
@@ -15,9 +16,10 @@
   </div>
 </ul>
 
-<!-- <form class="new-task" ng-submit="$ctrl.addPlaylist($ctrl.newPlaylist)">
-  <input ng-model="$ctrl.newPlaylist.title" type="text" name="title" placeholder="Type to add new title" />
-  <input ng-model="$ctrl.newPlaylist.recCount" type="text" name="recCount" placeholder="Type to add count" />
-  <input ng-model="$ctrl.newPlaylist.albumArtURL" type="text" name="albumArtURL" placeholder="Type to add album art" />
-  <input type="submit"/>
-</form> -->
+<ul class="footer-menu">
+  <li ui-sref="home" class="flex-item icon-view home-icon">Home</li>
+  <li ui-sref="playlists" class="flex-item icon-view playlists-icon">Playlists</li>
+  <li ui-sref="createRecommendation" class="flex-item icon-view recommend-icon">Recommend</li>
+  <li ui-sref="trending" class="flex-item icon-view trending-icon">Trending</li>
+  <li class="flex-item icon-view settings-icon">Settings</li>
+</ul>

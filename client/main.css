@@ -63,7 +63,7 @@ header h1 {
 	background: #2980b9;
 	color: white;
 	text-align: center;
-	height: 7rem;
+	height: 10rem;
 	padding-top: 1.4rem;
 }
 
@@ -78,7 +78,7 @@ header h1 {
 .single-trend {
 	padding: 10px;
 	width: 50%;
-	height: 40rem;
+	height: 26em;
 	display:flex;
     align-items: center;
     justify-content: center;
@@ -137,9 +137,20 @@ body {
 	box-shadow: 0 0 5px #888888;
 }
 
+.add-playlist {
+	position: absolute;
+	top: 0.2em;
+	right: 1em;
+	font-size: 6rem;
+}
+
 .recview {
 	width: 45%;
 	margin-top: 4rem;
+}
+
+.new-task {
+	width: 100%;
 }
 
 .new-recommendation {
@@ -373,7 +384,8 @@ recommendation h2, success h2 {
 
 .recommender h3 {
 	font-size: 1.5em;
-	margin-top: 3.8em;
+	margin-top: 5.3em;
+	font-style: italic;
 }
 
 .recommender img {
@@ -386,8 +398,8 @@ recommendation h2, success h2 {
   padding: 0;
   width: 100%; 
   margin: 0;
-  padding-bottom: 1em;
   list-style: none;
+  background: #787878;
   
   display: -webkit-box;
   display: -moz-box;
@@ -400,16 +412,54 @@ recommendation h2, success h2 {
 }
 
 .flex-item {
-  background: black;
   padding: 5px;
-  width: 18%;
+  width: 20%;
   height: 150px;
   margin-top: 10px;
   
-  line-height: 150px;
+  line-height: 200px;
   color: white;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 1.5em;
   text-align: center;
 }
 
+.icon-view {
+	background-size: 60px 60px;
+    background-repeat: no-repeat;
+    background-position-x: 3em;
+    background-position-y: .7em;
+}
+
+.home-icon {
+	background-image: url(images/home.png);
+}
+
+.playlists-icon {
+	background-image: url(images/trend.png);
+    background-size: 75px 50px;
+    background-position-x: 2.7em;
+    background-position-y: 1em;
+}
+
+.recommend-icon {
+	background-image: url(images/recommend.png);
+}
+
+.back-button {
+    height: 6em;
+    position: absolute;
+    top: 11em;
+    left: 10em;
+}
+
+.trending-icon {
+	background-image: url(images/trending.png);
+    background-size: 70px 70px;
+    background-position-y: 0.5em;
+}
+
+.settings-icon {
+	background-image: url(images/setting.png);
+
+}
