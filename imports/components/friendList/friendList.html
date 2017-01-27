@@ -3,7 +3,7 @@
 </header>
  
 <ul>
-  <div class="friend" ng-repeat="rec in $ctrl.users" ng-click="$ctrl.viewRecommendation(rec)">
+  <div class="friend" ng-repeat="rec in $ctrl.users" ng-click="$ctrl.toggleFriend(rec); toggle = !toggle;" ng-class="{'selected': toggle}">
     <div class="recommender friend-option">
       <img src="{{rec.img}}"/>
       <h3 style="order: 1" >{{rec.name}}</h3>
@@ -14,6 +14,6 @@
   </div>
 </ul>
 
-<div ui-sref="success" class="submit-footer">
+<div ng-click="$ctrl.submit()" class="submit-footer">
   <h1>Send</h1>
 </div>

@@ -4,16 +4,19 @@
  
 <div class="song-container">
   <div class="art-container">
-    <img src="{{$ctrl.users[0].recs.img}}"/>
+    <img src="https://pixy.org/images/placeholder.png"/>
   </div>
   <div class="song-information">
-    <h1>{{$ctrl.users[0].recs.recm.track}}</h1>
-    <h2>{{$ctrl.users[0].recs.recm.artist}}</h2>
+    <h1>{{$ctrl.recommendation.title}}</h1>
+    <h2>{{$ctrl.recommendation.artist}}</h2>
   </div>
   <div class="user-information">
-    <h3>This is great!</h3>
-    <div ng-repeat="friends in $ctrl.users" class="song-recommender">
-      <img src="{{$ctrl.users[0].img}}"/>
+    <h3>{{$ctrl.recommendation.message}}</h3>
+    <div ng-repeat="friend in $ctrl.selectedFriends" class="song-recommender">
+      <img src="{{friend}}"/>
     </div>
   </div>
+  <div class="submit-footer" ui-sref="home">
+  <h1>Back To Home</h1>
+</div>
 </div>

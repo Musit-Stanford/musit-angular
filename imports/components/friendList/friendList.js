@@ -9,16 +9,31 @@ class FriendListCtrl {
   constructor($scope, $stateParams) {
     'ngInject';
     $scope.viewModel(this);
- 
+    $scope.toggle = false;
+    this.selectedFriends = {};
     this.helpers({
       users() {
         return Users.find({});
-      }
-    })
+      },
+    });
   }
 
   viewFriend(friend) {
     /* route to new view */
+  }
+
+  toggleFriend(friend) {
+    if (friend.name in this.selectedFriends) {
+      delete this.selectedFriends[friend.name];
+    } else {
+      this.selectedFriends[friend.name] = friend.img;
+    }
+    console.log(this.selectedFriends);
+  }
+
+  submit() {
+    window.localStorage.setItem('selectedFriends', JSON.stringify(this.selectedFriends));
+    window.location = "/success";
   }
 }
  
