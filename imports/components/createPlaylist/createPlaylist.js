@@ -12,6 +12,13 @@ class CreatePlaylistCtrl {
 
   addPlaylist(newPlaylist) {
     // Insert a task into the collection
+    var newPlaylist = {
+      title: newPlaylist.title,
+      recCount: 0,
+      albumArtURL: 'http://www.stateshirt.com/wp-content/uploads/2014/04/losthills_albumartwork_idea.jpg',
+      createdAt: new Date
+    };
+
     Playlists.insert({
       title: newPlaylist.title,
       recCount: 0,
