@@ -19,7 +19,7 @@ class Musit {}
 const name = 'musit';
 
 // create a module
-var musitApp = angular.module(name, [
+var musit = angular.module(name, [
   angularMeteor,
   uiRouter,
   Trending.name,
@@ -34,23 +34,23 @@ var musitApp = angular.module(name, [
   playlistList.name
 ]);
 
-musitApp.component(name, {
+musit.component(name, {
   templateUrl: template,
   erAs: name,
   controller: Musit
 });
 
-musitApp.config (function($locationProvider, $urlRouterProvider, $stateProvider) {
+musit.config (function($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
 
-  var homeState = {
+  /*var homeState = {
     name: 'home',
     url: '/',
     template: '<home></home>'
   }
-  $stateProvider.state(homeState);
+  $stateProvider.state(homeState);*/
 
   var recommendationState = {
     name: 'recommendation',
