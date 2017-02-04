@@ -41,3 +41,5 @@ export default angular.module('createPlaylist', [
     templateUrl: 'imports/components/createPlaylist/createPlaylist.html',
     controller: ['$scope', '$stateParams', CreatePlaylistCtrl]
   });
+
+  
