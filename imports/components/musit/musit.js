@@ -113,4 +113,4 @@ var configfunc = function ($locationProvider, $urlRouterProvider, $stateProvider
     template: '<create-playlist></create-playlist>'
   }
   $stateProvider.state(createPlaylistState);
-}
+};
