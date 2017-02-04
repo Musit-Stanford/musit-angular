@@ -40,8 +40,6 @@ export default angular.module(name, [
   .config(config);
 
 function config($locationProvider, $urlRouterProvider, $stateProvider) {
-  'ngInject';
-
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
