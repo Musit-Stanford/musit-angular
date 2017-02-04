@@ -40,7 +40,7 @@ musit.component(name, {
   controller: ['$scope', Musit]
 });
 
-musit.config (function($locationProvider, $urlRouterProvider, $stateProvider) {
+musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', function($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
@@ -114,4 +114,4 @@ musit.config (function($locationProvider, $urlRouterProvider, $stateProvider) {
     template: '<create-playlist></create-playlist>'
   }
   $stateProvider.state(createPlaylistState);
-});
+}]);
