@@ -34,12 +34,12 @@ export default angular.module(name, [
   playlistList.name
 ]).component(name, {
   templateUrl: template,
-  controllerAs: name,
+  erAs: name,
   controller: Musit
 })
-  .config(config);
+  .config(configfunc);
 
-function config($locationProvider, $urlRouterProvider, $stateProvider) {
+var configfunc = function ($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
