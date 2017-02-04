@@ -32,7 +32,9 @@ var musitApp = angular.module(name, [
   playlist.name,
   createPlaylist.name,
   playlistList.name
-]).component(name, {
+]);
+
+musitApp.component(name, {
   templateUrl: template,
   erAs: name,
   controller: Musit
