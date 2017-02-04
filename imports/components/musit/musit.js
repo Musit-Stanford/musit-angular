@@ -37,7 +37,7 @@ var musit = angular.module(name, [
 musit.component(name, {
   templateUrl: template,
   erAs: name,
-  controller: Musit
+  controller: ['$scope', Musit]
 });
 
 musit.config (function($locationProvider, $urlRouterProvider, $stateProvider) {
@@ -45,12 +45,12 @@ musit.config (function($locationProvider, $urlRouterProvider, $stateProvider) {
 
   $urlRouterProvider.otherwise('/');
 
-  /*var homeState = {
+  var homeState = {
     name: 'home',
     url: '/',
     template: '<home></home>'
   }
-  $stateProvider.state(homeState);*/
+  $stateProvider.state(homeState);
 
   var recommendationState = {
     name: 'recommendation',
