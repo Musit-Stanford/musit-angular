@@ -1,11 +1,12 @@
 <header>
 	<h1>Create Playlist</h1>
 </header>
-
-<form class="new-recommendation" ng-submit="$ctrl.addPlaylist($ctrl.newPlaylist)">
-  <input ng-model="$ctrl.newPlaylist.title" type="text" name="title" placeholder="Type to add new title" />
-  <input ui-sref="playlists" type="submit"/>
-</form>
+<div class="create-container">
+	<form class="new-recommendation" ng-submit="$ctrl.addPlaylist($ctrl.newPlaylist)">
+	  <input ng-model="$ctrl.newPlaylist.title" type="text" name="title" placeholder="Type to add new title" />
+	  <input ui-sref="playlists" type="submit"/>
+	</form>
+</div>
 
 <ul class="footer-menu">
   <li ui-sref="home" class="flex-item icon-view home-icon">Home</li>
