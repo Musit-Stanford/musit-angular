@@ -21,7 +21,7 @@ class Musit {}
 const name = 'musit';
 
 // create a module
-export default angular.module(name, [
+var musit = angular.module(name, [
   angularMeteor,
   uiRouter,
   'accounts.ui',
@@ -32,16 +32,17 @@ export default angular.module(name, [
   success.name,
   playlist.name,
   createPlaylist.name,
-  playlistList.name,
-  Login.name
-]).component(name, {
-  templateUrl: template,
-  controllerAs: name,
-  controller: Musit
-})
-  .config(config);
+  Login.name,
+  playlistList.name
+]);
 
-function config($locationProvider, $urlRouterProvider, $stateProvider) {
+musit.component(name, {
+  templateUrl: template,
+  erAs: name,
+  controller: ['$scope', Musit]
+});
+
+musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', function($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
@@ -108,7 +109,7 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
     template: '<create-playlist></create-playlist>'
   }
   $stateProvider.state(createPlaylistState);
-}
+}]);
 
 
 Meteor.autorun(function () {

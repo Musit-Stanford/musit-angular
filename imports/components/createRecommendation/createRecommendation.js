@@ -44,6 +44,8 @@ class RecommenderCtrl {
 
 }
 
+
+
 export default angular.module('createRecommendation', [
   angularMeteor,
   uiRouter

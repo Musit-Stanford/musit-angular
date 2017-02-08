@@ -3,7 +3,7 @@
 </header>
  
 <ul>
-  <div class="recommendation" ng-repeat="rec in $ctrl.users" ui-sref="recommendation({recId: rec.name})">
+  <div class="recommendation" ng-repeat="rec in $ctrl.recommendations" ui-sref="recommendation({recId: rec.name})">
   	<div class="album-art">
   		<img src="{{rec.recs.img}}"/>
 	</div>
