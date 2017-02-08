@@ -1,6 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import '../../startup/accounts-config.js';
 
 import template from './musit.html';
 import Trending from '../trending/trending';
@@ -13,6 +14,7 @@ import playlistList from '../playlistList/playlistList';
 import createPlaylist from '../createPlaylist/createPlaylist';
 import Recommendation from '../recommendation/recommendation';
 import MusitHome from '../home/home';
+import Login from '../login/login';
 
 class Musit {}
 
@@ -22,15 +24,15 @@ const name = 'musit';
 var musit = angular.module(name, [
   angularMeteor,
   uiRouter,
-  Trending.name,
+  'accounts.ui',
   MusitHome.name,
   Recommendation.name,
   createRecommendation.name,
   friendList.name,
-  trendingList.name,
   success.name,
   playlist.name,
   createPlaylist.name,
+  Login.name,
   playlistList.name
 ]);
 
@@ -48,9 +50,16 @@ musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', func
   var homeState = {
     name: 'home',
     url: '/',
-    template: '<home></home>'
+    template: '<home></home>',
   }
   $stateProvider.state(homeState);
+
+  var loginState = {
+    name: 'login',
+    url: '/login',
+    template: '<login></login>'
+  }
+  $stateProvider.state(loginState);
 
   var recommendationState = {
     name: 'recommendation',
@@ -87,20 +96,6 @@ musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', func
   }
   $stateProvider.state(successState);
 
-  var trendingState = {
-    name: 'trending',
-    url: '/trending',
-    template: '<trending></trending>'
-  }
-  $stateProvider.state(trendingState);
-
-  var trendingListState = {
-    name: 'trendingList',
-    url: '/trendingList',
-    template: '<trending-list></trending-list>'
-  }
-  $stateProvider.state(trendingListState);
-
   var playlistListState = {
     name: 'playlistList',
     url: '/playlistList/:playlistId',
@@ -115,3 +110,13 @@ musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', func
   }
   $stateProvider.state(createPlaylistState);
 }]);
+
+
+Meteor.autorun(function () {
+  if (!Meteor.userId()) {
+  } else {
+    if(window.location.pathname !== "/") {
+      window.location.href="/";
+    }
+  }
+});
