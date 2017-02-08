@@ -5,5 +5,5 @@ import { Users } from '../imports/api/users.js';
 import { Recommendations } from '../imports/api/recommendations.js';
 
 Meteor.startup(() => {
-  
+  Users.insert({ name: "Jared Wolens"})
 });

@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Users } from '../../api/users.js';
+import { Recommendations } from '../../api/recommendations.js';
 
 import template from './home.html';
 import uiRouter from 'angular-ui-router';
@@ -10,8 +10,8 @@ class MusitHomeCtrl {
     $scope.viewModel(this);
  
     this.helpers({
-      users() {
-        return Users.find({});
+      recommendations() {
+        return Recommendations.find({});
       }
     })
   }

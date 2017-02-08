@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Users } from '../../api/users.js';
+import { Recommendations } from '../../api/recommendations.js';
 
 import template from './recommendation.html';
 import uiRouter from 'angular-ui-router';
@@ -11,10 +11,19 @@ class RecommendationCtrl {
 
 
     $scope.viewModel(this);
+    var track = Recommendations.findOne({"_id": $stateParams.recId});
+    console.log(track)
+    var iframe = document.createElement("iframe");
+    iframe.src = "https://embed.spotify.com/?uri=spotify:track:" + track.spotifyID;
+    iframe.allowtransparency = true;
+    iframe.width = 300;
+    iframe.height = 80;
+    iframe.frameborder=0;
+    document.getElementById("iframe-container").appendChild(iframe)
  
     this.helpers({
-      users() {
-        return Users.find({"name": $stateParams.recId});
+      track() {
+        return Recommendations.findOne({"_id": $stateParams.recId});
       }
     })
   }

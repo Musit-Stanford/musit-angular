@@ -3,13 +3,13 @@
 </header>
  
 <ul>
-  <div class="recommendation" ng-repeat="rec in $ctrl.users" ui-sref="recommendation({recId: rec.name})">
+  <div class="recommendation" ng-repeat="rec in $ctrl.recommendations" ui-sref="recommendation({recId: rec._id})">
   	<div class="album-art">
-  		<img src="{{rec.recs.img}}"/>
+  		<img src="{{rec.albumArtURL}}"/>
 	</div>
   	<div class="details">
-  	   <h1>{{rec.recs.recm.track}}</h1>
-	     <h2>{{rec.recs.recm.artist}}</h2>
+  	   <h1>{{rec.title}}</h1>
+	     <h2>{{rec.artist}}</h2>
   	</div>
   	<div class="recommender">
 	  	<h3>{{rec.name}}</h3>
