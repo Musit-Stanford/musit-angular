@@ -22,7 +22,8 @@ class RecommenderCtrl {
       title: newRecommendation.title,
       artist: newRecommendation.artist,
       album: newRecommendation.album,
-      message: newRecommendation.message,
+      album_art_url: newRecommendation.album_art_url,
+      from_user: Meteor.user()._id, 
       createdAt: new Date
     });
 

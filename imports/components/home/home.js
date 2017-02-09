@@ -1,6 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Accounts } from '../../api/users.js';
+import { Recommendations } from '../../api/recommendations.js';
 import { Meteor } from 'meteor/meteor';
 
 import template from './home.html';
@@ -15,13 +16,23 @@ class MusitHomeCtrl {
     $scope.viewModel(this);
  
     this.helpers({
-      users() {
-        return Accounts.find({});
+      recommendations() {
+        var userId = Meteor.user();
+        if(userId) {
+          var recommendations = Recommendations.find({"to_user": userId._id});
+          $scope.recommendations = recommendations; 
+          return recommendations;
+        }
       },
       currentUser() {
         return Meteor.user(); 
       }
-    })
+    });
+
+    findUsername(id) {
+      var recommender = Meteor.users.find({"_id": id}); 
+      return recommender; 
+    }
   }
 }
  
