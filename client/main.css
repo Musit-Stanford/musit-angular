@@ -287,7 +287,7 @@ body {
 }
 
 .song-container {
-	height: 90%;
+	height: 85%;
 	justify-content: space-between;
 	display: flex; 
 	flex-direction: column; 
@@ -361,6 +361,20 @@ header {
 
 ul {
 	-webkit-padding-start: 0;
+}
+
+.add-to-default {
+	position: absolute; 
+	bottom: 0; 
+	background: #27ae60; 
+	width: 100%;
+	color: white;
+	height: 5%;
+	font-size: .3em;
+}
+
+.add-to-default h1 {
+	margin-top: .5em;
 }
 
 .recommendation {

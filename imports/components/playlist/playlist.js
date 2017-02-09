@@ -12,9 +12,13 @@ class PlaylistCtrl {
 
     this.helpers({
       playlists() {
-        return Playlists.find({});
+        return Playlists.find({owner: Meteor.userId()});
       }
     })
+  }
+  
+  goToPlaylist(playlist) {
+    console.log(playlist._id._str)
   }
 
   addPlaylist(newPlaylist) {
@@ -32,7 +36,6 @@ class PlaylistCtrl {
     this.newPlaylist.albumArtURL = "";
   }
 }
-
 export default angular.module('playlist', [
   angularMeteor,
   uiRouter

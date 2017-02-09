@@ -1,19 +1,19 @@
 <header>
   <img ui-sref="playlists" class="back-button" src="images/back.png"/>
-  <h1>{{$ctrl.playlistName}}</h1>
+  <h1>{{$ctrl.playlist.title}}</h1>
 </header>
  
 <ul>
-  <div class="recommendation" ng-repeat="rec in $ctrl.recommendations" ui-sref="recommendation({recId: rec.name})">
+  <div class="recommendation" ng-repeat="rec in $ctrl.recommendations" ui-sref="recommendation({recId: rec._id})">
   	<div class="album-art">
-  		<img src="{{rec.img}}"/>
+  		<img src="{{rec.albumArtURL}}"/>
 	</div>
   	<div class="details">
-  	   <h1>{{rec.track}}</h1>
+  	   <h1>{{rec.title}}</h1>
 	     <h2>{{rec.artist}}</h2>
   	</div>
   	<div class="recommender">
-	  	<h3>{{rec.from.name}}</h3>
+	  	<h3>{{rec.from_user}}</h3>
   	    <img src="{{rec.from.img}}"/>
   	</div>
   </div>

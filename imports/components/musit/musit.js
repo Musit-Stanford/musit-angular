@@ -5,7 +5,7 @@ import '../../startup/accounts-config.js';
 
 import template from './musit.html';
 import Trending from '../trending/trending';
-import playlist from '../playlist/playlist.js'; 
+import playlist from '../playlist/playlist.js';
 import createRecommendation from '../createRecommendation/createRecommendation';
 import friendList from '../friendList/friendList';
 import trendingList from '../trendingList/trendingList';
@@ -42,10 +42,10 @@ musit.component(name, {
   controller: ['$scope', Musit]
 });
 
-musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', function($locationProvider, $urlRouterProvider, $stateProvider) {
+musit.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', function ($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/');
+  //  $urlRouterProvider.otherwise('/');
 
   var homeState = {
     name: 'home',
@@ -113,10 +113,10 @@ musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', func
 
 
 Meteor.autorun(function () {
-  if (!Meteor.userId()) {
-  } else {
-    if(window.location.pathname !== "/") {
-      window.location.href="/";
+  if (!Meteor.userId()) {} else {
+    if (window.location.pathname !== "/" && window.location.pathname !== "/friendList" && window.location.pathname !== "/success") {
+      window.location.href = "/";
+    } else {
     }
   }
 });

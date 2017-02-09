@@ -17,23 +17,23 @@ class RecommenderCtrl {
       }
     })
   }
-  
+
   searchTracks($scope, query) {
-  var url = "https://api.spotify.com/v1/search";
-  var options = {
-    params: {
-      q: query,
-      type: "artist,track"
+    var url = "https://api.spotify.com/v1/search";
+    var options = {
+      params: {
+        q: query,
+        type: "artist,track"
+      }
     }
-  }
-  HTTP.get(url, options, function (error, result) {
+    HTTP.get(url, options, function (error, result) {
       if (error === null) {
         var matchedTracks = result.data.tracks.items.slice(0, 20)
         $scope.results = matchedTracks;
       }
     });
   }
-  
+
   choseTrack($scope, track) {
     $scope.trackChosen = true;
     $scope.selectedTrack = track;
@@ -42,10 +42,10 @@ class RecommenderCtrl {
     iframe.allowtransparency = true;
     iframe.width = 300;
     iframe.height = 80;
-    iframe.frameborder=0;
+    iframe.frameborder = 0;
     document.getElementById("iframe-container").appendChild(iframe)
   }
-  
+
   unselectTrack($scope) {
     $scope.trackChosen = false;
   }
@@ -75,12 +75,14 @@ class RecommenderCtrl {
     if (message === undefined || message === "") {
       message = "I think you'll like this song!"
     }
+    console.log(Meteor.user().name);
     var recommendation = {
       title: track.name,
       artist: track.artists[0].name,
       albumArtURL: track.album.images[0].url,
       spotifyID: track.id,
-      message: message
+      message: message,
+      from_user: Meteor.user().profile.name // SECURITY ISSUE
     }
     window.localStorage.setItem('inProgressForm', JSON.stringify(recommendation));
     window.location = "/friendList";
