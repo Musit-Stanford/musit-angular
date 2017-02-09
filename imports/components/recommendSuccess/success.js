@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Users } from '../../api/users.js';
+import { Accounts } from '../../api/accounts.js';
 
 import template from './success.html';
 import uiRouter from 'angular-ui-router';

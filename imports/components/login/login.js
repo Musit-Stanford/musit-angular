@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Accounts } from '../../api/users.js';
+import { Accounts } from '../../api/accounts.js';
 import { Meteor } from 'meteor/meteor';
 
 import template from './login.html';

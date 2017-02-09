@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Recommendations } from '../../api/recommendations.js';
-import { Accounts } from '../../api/users.js';
+import { Accounts } from '../../api/accounts.js';
 import { Meteor } from 'meteor/meteor';
 
 import template from './home.html';

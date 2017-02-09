@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Users } from '../../api/users.js';
+import { Users } from '../../api/accounts.js';
 import { Recommendations } from '../../api/recommendations.js';
 
 import template from './friendList.html';
