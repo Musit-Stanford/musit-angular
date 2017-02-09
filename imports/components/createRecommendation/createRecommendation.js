@@ -1,7 +1,10 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import template from './createRecommendation.html';
-import { Recommendations } from '../../api/recommendations.js';
+import {
+  Recommendations
+}
+from '../../api/recommendations.js';
 import uiRouter from 'angular-ui-router';
 
 
@@ -16,9 +19,9 @@ class RecommenderCtrl {
         return Recommendations.find({});
       }
     })
-}
-  
-    searchTracks($scope, query) {
+  }
+
+  searchTracks($scope, query) {
     var url = "https://api.spotify.com/v1/search";
     var options = {
       params: {
@@ -33,7 +36,7 @@ class RecommenderCtrl {
       }
     });
   }
-  
+
   choseTrack($scope, track) {
     $scope.trackChosen = true;
     $scope.selectedTrack = track;
@@ -42,29 +45,12 @@ class RecommenderCtrl {
     iframe.allowtransparency = true;
     iframe.width = 300;
     iframe.height = 80;
-    iframe.frameborder=0;
+    iframe.frameborder = 0;
     document.getElementById("iframe-container").appendChild(iframe)
   }
-  
+
   unselectTrack($scope) {
     $scope.trackChosen = false;
-  }
-
-  addRecommendation(newRecommendation) {
-    // Insert a task into the collection
-    Recommendations.insert({
-      title: newRecommendation.title,
-      artist: newRecommendation.artist,
-      album: newRecommendation.album,
-      message: newRecommendation.message,
-      createdAt: new Date
-    });
-
-    // Clear form
-    this.newRecommendation.title = "";
-    this.newRecommendation.artist = "";
-    this.newRecommendation.album = "";
-    this.newRecommendation.message = "";
   }
 
   submit(track, message, trackChosen) {
@@ -74,12 +60,14 @@ class RecommenderCtrl {
     if (message === undefined || message === "") {
       message = "I think you'll like this song!"
     }
+    console.log(Meteor.user().name);
     var recommendation = {
       title: track.name,
       artist: track.artists[0].name,
       albumArtURL: track.album.images[0].url,
       spotifyID: track.id,
-      message: message
+      message: message,
+      from_user: Meteor.user().profile.name // SECURITY ISSUE
     }
     window.localStorage.setItem('inProgressForm', JSON.stringify(recommendation));
     window.location = "/friendList";

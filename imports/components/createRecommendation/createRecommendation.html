@@ -3,7 +3,7 @@
   <h1 class='text-center'>Recommend</h1>
 </header>
 
-<form class="new-recommendation" ng-submit="$ctrl.addPlaylist($ctrl.newPlaylist)">
+<form class="new-recommendation">
   <input ng-if="!$ctrl.trackChosen" ng-model="$ctrl.query" type="text" id="ajax" placeholder="Search" ng-change="$ctrl.searchTracks($ctrl, $ctrl.query)">
 
   <div ng-if="$ctrl.trackChosen" class="recommendation">

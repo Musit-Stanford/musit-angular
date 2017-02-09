@@ -1,5 +1,5 @@
 <header>
-  <h1>Recommendations</h1>
+  <h1>Hi {{$ctrl.currentUser.services.facebook.name}}!</h1>
 </header>
  
 <ul>
@@ -12,7 +12,7 @@
 	     <h2>{{rec.artist}}</h2>
   	</div>
   	<div class="recommender">
-	  	<h3>{{rec.name}}</h3>
+	  	<h3>From:{{rec.from_user}}</h3>
   	    <img src="{{rec.img}}"/>
   	</div>
   </div>

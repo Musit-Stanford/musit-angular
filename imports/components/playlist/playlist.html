@@ -4,14 +4,13 @@
 </header>
 
 <ul class="playlistContainer">
-  <div class="recommendation" ng-repeat="playlist in $ctrl.playlists" ui-sref="playlistList({playlistId: playlist.title})">
-     <div class="album-art">
-        <img src="{{playlist.albumArtURL}}"/>
+  <div class="recommendation" ng-repeat="playlist in $ctrl.playlists" ui-sref="playlistList({playlistId: playlist._id})">
+    <div class="album-art">
+      <img src="http://placehold.it/200x200" />
     </div>
     <div class="details">
-       <h1 id="playlist-title">{{playlist.title}}</h1>
-       <h2>{{playlist.recCount}} items</h2>
-    </div>
+      <h1 id="playlist-title">{{playlist.title}}</h1>
+      <h2></h2>
     </div>
   </div>
 </ul>
