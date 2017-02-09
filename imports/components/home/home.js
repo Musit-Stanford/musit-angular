@@ -8,7 +8,6 @@ import uiRouter from 'angular-ui-router';
 class MusitHomeCtrl {
   constructor($scope) {
     $scope.viewModel(this);
- 
     this.helpers({
       users() {
         return Users.find({});

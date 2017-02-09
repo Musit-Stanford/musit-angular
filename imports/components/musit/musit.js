@@ -14,12 +14,13 @@ import createPlaylist from '../createPlaylist/createPlaylist';
 import Recommendation from '../recommendation/recommendation';
 import MusitHome from '../home/home';
 
-class Musit {}
+class Musit {
+}
 
 const name = 'musit';
 
 // create a module
-var musit = angular.module(name, [
+export default angular.module(name, [
   angularMeteor,
   uiRouter,
   Trending.name,
@@ -32,15 +33,15 @@ var musit = angular.module(name, [
   playlist.name,
   createPlaylist.name,
   playlistList.name
-]);
+]).config(config)
+  .controller('MusitController', controller)
+  .component(name, {
+    templateUrl: template,
+    controllerAs: name,
+    controller: 'MusitController'
+  })
 
-musit.component(name, {
-  templateUrl: template,
-  erAs: name,
-  controller: ['$scope', Musit]
-});
-
-musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', function($locationProvider, $urlRouterProvider, $stateProvider) {
+function config ($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
@@ -114,4 +115,7 @@ musit.config (['$locationProvider', '$urlRouterProvider', '$stateProvider', func
     template: '<create-playlist></create-playlist>'
   }
   $stateProvider.state(createPlaylistState);
-}]);
+}
+
+function controller($scope) {
+}

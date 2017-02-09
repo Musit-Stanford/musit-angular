@@ -453,7 +453,7 @@ recommendation h2, success h2 {
 	background-image: url(images/recommend.png);
 }
 
-.back-button {
+.menu-button {
     height: 6em;
     position: absolute;
     top: 11em;
