@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import { Recommendations } from '../../api/recommendations.js';
 import { Accounts } from '../../api/users.js';
 import { Recommendations } from '../../api/recommendations.js';
 import { Meteor } from 'meteor/meteor';
@@ -23,6 +24,9 @@ class MusitHomeCtrl {
           $scope.recommendations = recommendations; 
           return recommendations;
         }
+      },
+      users() {
+        return Accounts.find({});
       },
       currentUser() {
         return Meteor.user(); 

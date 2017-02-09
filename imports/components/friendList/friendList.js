@@ -1,6 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users.js';
+import { Recommendations } from '../../api/recommendations.js';
 
 import template from './friendList.html';
 import uiRouter from 'angular-ui-router';
@@ -34,6 +35,8 @@ class FriendListCtrl {
   submit() {
     window.localStorage.setItem('selectedFriends', JSON.stringify(this.selectedFriends));
     window.location = "/success";
+    var recommendation = JSON.parse(window.localStorage.getItem('inProgressForm'));
+    Recommendations.insert(recommendation);
   }
 }
  
