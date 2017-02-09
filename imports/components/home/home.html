@@ -5,14 +5,14 @@
 <ul>
   <div class="recommendation" ng-repeat="rec in $ctrl.recommendations" ui-sref="recommendation({recId: rec._id})">
   	<div class="album-art">
-  		<img src="{{rec.album_art}}"/>
+  		<img src="{{rec.albumArtURL}}"/>
 	</div>
   	<div class="details">
   	   <h1>{{rec.title}}</h1>
 	     <h2>{{rec.artist}}</h2>
   	</div>
   	<div class="recommender">
-	  	<h3>{{ this.findUsername(rec.from_user) }}</h3>
+	  	<h3>{{ $ctrl.findUsername(rec.from_user) }}</h3>
   	</div>
   </div>
 </ul>

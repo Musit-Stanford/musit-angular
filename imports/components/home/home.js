@@ -1,8 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Recommendations } from '../../api/recommendations.js';
-import { Accounts } from '../../api/users.js';
-import { Recommendations } from '../../api/recommendations.js';
+import { Accounts } from '../../api/accounts.js';
 import { Meteor } from 'meteor/meteor';
 
 import template from './home.html';
@@ -25,18 +24,15 @@ class MusitHomeCtrl {
           return recommendations;
         }
       },
-      users() {
-        return Accounts.find({});
-      },
       currentUser() {
         return Meteor.user(); 
       }
     });
+  }
 
-    findUsername(id) {
-      var recommender = Meteor.users.find({"_id": id}); 
-      return recommender; 
-    }
+  findUsername(id) {
+    var recommender = Meteor.users.findOne({"_id": id}); 
+    return recommender.profile.name; 
   }
 }
  

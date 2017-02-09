@@ -101,7 +101,6 @@ article h2 {
 recommendation header h1 {
 	padding-bottom: 5px;
 	margin: 0;
-	margin-top: 2rem;
 }
 
 success header h1 {
@@ -119,7 +118,8 @@ header h1 {
   padding-bottom: 15px;
   text-transform: uppercase; 
   font-size: 36px;
-  margin-top: 33px;
+  text-align: center;
+  line-height: 90px;
 }
 
 .playlistContainer, .album-art {
@@ -206,14 +206,11 @@ body {
 
 .art-container {
 	order: 1;
-	width: 60%;
-	margin: 0 auto;
-	margin-top: 5em;
+	width: 100%;
 }
 
 .art-container img {
-	max-width: 100%;
-	border-radius: 1em;
+	width: 100%;
 	box-shadow: 0 0 5px #888888;
 }
 
@@ -285,7 +282,13 @@ body {
 	margin-top: 6rem;
 }
 
+.ng-scope { 
+	height: 100%;
+}
+
 .song-container {
+	height: 90%;
+	justify-content: space-between;
 	display: flex; 
 	flex-direction: column; 
 	background: white;
@@ -299,25 +302,24 @@ body {
 
 .song-information h1 {
 	margin-bottom: 1rem;
-	font-size: 5em;
+	font-size: 3em;
 }
 
 .song-information h2 {
 	font-size: 3em;
 	color: #e74c3c;
-	margin-top: 2rem;
+	margin-top: 1.5rem;
 	font-weight: bold;
 }
 
 .user-information {
 	order: 3;
 	text-align: center;
-	margin-top: 16rem;
 	font-size: 4rem;
 }
 
 .user-information h3 {
-	font-size: 44px;
+	font-size: 2.2rem;
 }
 
 .song-recommender {
@@ -353,7 +355,7 @@ header {
     text-align: center;
     padding: 20px 15px 15px 15px;
     position: relative;
-    height: 140px;
+    height: 90px;
     font-size: .5rem;
 }
 
@@ -440,7 +442,7 @@ recommendation h2, success h2 {
 
 .details h1 {
 	margin-top: 30px;
-	font-size: 3.5em;
+	font-size: 2.4em;
 	font-weight: bolder;
 	margin-bottom: 0;
 }
@@ -461,14 +463,14 @@ recommendation h2, success h2 {
 	width: 40%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: flex-end;
 }
 
 
 .recommender h3 {
-	font-size: 1.5em;
-	margin-top: 5.3em;
-	font-style: italic;
+	font-size: 1.6em;
+	color: #2fb80d;
+	margin-top: 4.5em;
 }
 
 .recommender img {
@@ -542,10 +544,14 @@ create-playlist body {
     background: #27ae60;
 }
 
+.from-recommender {
+	font-size: .55em;
+}
+
 .back-button {
-    height: 6em;
+    height: 4em;
     position: absolute;
-    top: 11em;
+    top: 6.5em;
     left: 10em;
 }
 

@@ -16,7 +16,7 @@ class RecommendationCtrl {
     var iframe = document.createElement("iframe");
     iframe.src = "https://embed.spotify.com/?uri=spotify:track:" + track.spotifyID;
     iframe.allowtransparency = true;
-    iframe.width = 300;
+    iframe.width = window.innerWidth/2;
     iframe.height = 80;
     iframe.frameborder=0;
     document.getElementById("iframe-container").appendChild(iframe)
@@ -28,8 +28,10 @@ class RecommendationCtrl {
     })
   }
 
-  viewRecommendation(rec) {
-    console.log(rec);
+  findUsername(id) {
+    console.log(id);
+    var recommender = Meteor.users.findOne({"_id": id}); 
+    return recommender.profile.name; 
   }
 }
  
