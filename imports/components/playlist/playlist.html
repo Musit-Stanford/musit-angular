@@ -1,12 +1,21 @@
 <ul class="playlistContainer">
-  <div class="recommendation" ng-repeat="playlist in $ctrl.playlists" ui-sref="playlistList({playlistId: playlist.title})">
-     <div class="album-art">
-        <img src="{{playlist.albumArtURL}}"/>
+  <div class="recommendation" ng-repeat="playlist in $ctrl.playlists" ui-sref="playlistList({playlistId: playlist._id})">
+    <div class="album-art">
+      <img src="http://placehold.it/200x200" />
     </div>
     <div class="details">
-       <h1 id="playlist-title">{{playlist.title}}</h1>
-       <h2>{{playlist.recCount}} items</h2>
-    </div>
+      <h1 id="playlist-title">{{playlist.title}}</h1>
+      <h2></h2>
     </div>
   </div>
 </ul>
+
+<div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">add</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating green" ui-sref="createPlaylist"><i class="large material-icons">playlist_add</i></a></li>
+      <li><a class="btn-floating blue" ui-sref="createRecommendation"><i class="large material-icons">send</i></a></li>
+    </ul>
+</div>

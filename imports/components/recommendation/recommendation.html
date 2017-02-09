@@ -1,21 +1,29 @@
 <header>
-  <img ui-sref="home" class="back-button" src="images/back.png"/>
-  <h1>{{$ctrl.users[0].recs.recm.track}}</h1>
-  <h2>{{$ctrl.users[0].recs.recm.artist}}</h2>
-</header>
+  <h1>📝 <span class="from-recommender">FROM</span> {{$ctrl.findUsername($ctrl.track.from_user) }}</h1>
+<!--   <h2>{{$ctrl.track.artist}}</h2>
+ --></header>
 <div class="song-container">
   <div class="art-container">
-    <img src="{{$ctrl.users[0].recs.img}}"/>
+    <img src="{{$ctrl.track.albumArtURL}}"/>
   </div>
+  
+
   <div class="song-information">
-    <h1>{{$ctrl.users[0].recs.recm.track}}</h1>
-    <h2>{{$ctrl.users[0].recs.recm.artist}}</h2>
+    <h1>{{$ctrl.track.title}}</h1>
+    <h2>{{$ctrl.track.artist}}</h2>
   </div>
+
   <div class="user-information">
-    <h3>This is great!</h3>
+    <h3>{{$ctrl.track.message}}</h3>
+    <div id="iframe-container"></div>
+<!--
     <div class="song-recommender">
       <img src="{{$ctrl.users[0].img}}"/>
       <h3>{{$ctrl.users[0].name}}</h3>
+    </div>
+-->
+    <div class="add-to-default">
+      <h1 ng-click="$ctrl.addToDefault($ctrl.track)">Save to All Recommendations</h1>
     </div>
   </div>
 </div>

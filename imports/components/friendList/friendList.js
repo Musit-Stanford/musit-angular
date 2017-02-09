@@ -1,10 +1,12 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Users } from '../../api/users.js';
+import { Users } from '../../api/accounts.js';
+import { Recommendations } from '../../api/recommendations.js';
+import { Playlists } from '../../api/recommendations.js';
 
 import template from './friendList.html';
 import uiRouter from 'angular-ui-router';
- 
+
 class FriendListCtrl {
   constructor($scope, $stateParams) {
     'ngInject';
@@ -12,31 +14,39 @@ class FriendListCtrl {
     $scope.toggle = false;
     this.selectedFriends = {};
     this.helpers({
-      users() {
-        return Users.find({});
+      friends() {
+        return Meteor.users.find({
+          _id: {
+            $ne: Meteor.userId()
+          }
+        });
       },
     });
   }
 
-  viewFriend(friend) {
-    /* route to new view */
-  }
-
   toggleFriend(friend) {
-    if (friend.name in this.selectedFriends) {
-      delete this.selectedFriends[friend.name];
+    if (friend._id in this.selectedFriends) {
+      delete this.selectedFriends[friend._id];
     } else {
-      this.selectedFriends[friend.name] = friend.img;
+      this.selectedFriends[friend._id] = friend;
     }
     console.log(this.selectedFriends);
   }
 
   submit() {
     window.localStorage.setItem('selectedFriends', JSON.stringify(this.selectedFriends));
+    var recommendation = JSON.parse(window.localStorage.getItem('inProgressForm'));
+    console.log(this.selectedFriends);
+    Object.keys(this.selectedFriends).forEach(function (friendId) {
+      recommendation.to_user = friendId;
+      var defaultPlaylist = Playlists.findOne({owner: friendId, title: "Default"});
+      recommendation.playlistId = defaultPlaylist._id;
+      Recommendations.insert(recommendation);
+    });
     window.location = "/success";
   }
 }
- 
+
 export default angular.module('friendList', [
   angularMeteor,
   uiRouter

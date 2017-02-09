@@ -6,8 +6,84 @@
 li {
   list-style: none;
 }
-.playlistContainer {
-  
+
+article {
+/*  just a fancy border  */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+#logo {
+	position: absolute;
+	top: 2%; 
+	left: 3%; 
+	height: 5%; 
+	z-index: 1000;
+}
+
+.overlay-screen {
+	width: 100%; 
+	height: 100%; 
+  	background: url("images/giffy.gif") no-repeat center center fixed; 
+ 	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+article {
+ 	z-index: 2;
+	background: rgba(0,0,0,0.7); 
+}
+
+article h1 {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  font-size: 16rem;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+article h2 {
+  position: absolute;
+  top: 42%;
+  width: 100%;
+  font-size: 36px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+#login-buttons {
+	margin: auto;
+    width: 100%;
+    font-size: 8rem;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    top: 70%; 
+}
+
+#login-buttons a {
+	text-decoration: none;
+	color: white;
+}
+
+#login-dropdown-list {
+    width: 60%;
+    padding: 2rem;
+    font-size: 3rem;
+    top: -200%;
+    margin-left: 20%;
 }
 
 .playlistContainer li {
@@ -25,7 +101,6 @@ li {
 recommendation header h1 {
 	padding-bottom: 5px;
 	margin: 0;
-	margin-top: 2rem;
 }
 
 success header h1 {
@@ -43,7 +118,8 @@ header h1 {
   padding-bottom: 15px;
   text-transform: uppercase; 
   font-size: 36px;
-  margin-top: 33px;
+  text-align: center;
+  line-height: 90px;
 }
 
 .playlistContainer, .album-art {
@@ -130,14 +206,11 @@ body {
 
 .art-container {
 	order: 1;
-	width: 60%;
-	margin: 0 auto;
-	margin-top: 5em;
+	width: 100%;
 }
 
 .art-container img {
-	max-width: 100%;
-	border-radius: 1em;
+	width: 100%;
 	box-shadow: 0 0 5px #888888;
 }
 
@@ -209,7 +282,13 @@ body {
 	margin-top: 6rem;
 }
 
+.ng-scope { 
+	height: 100%;
+}
+
 .song-container {
+	height: 85%;
+	justify-content: space-between;
 	display: flex; 
 	flex-direction: column; 
 	background: white;
@@ -223,25 +302,24 @@ body {
 
 .song-information h1 {
 	margin-bottom: 1rem;
-	font-size: 5em;
+	font-size: 3em;
 }
 
 .song-information h2 {
 	font-size: 3em;
 	color: #e74c3c;
-	margin-top: 2rem;
+	margin-top: 1.5rem;
 	font-weight: bold;
 }
 
 .user-information {
 	order: 3;
 	text-align: center;
-	margin-top: 16rem;
 	font-size: 4rem;
 }
 
 .user-information h3 {
-	font-size: 44px;
+	font-size: 2.2rem;
 }
 
 .song-recommender {
@@ -277,12 +355,26 @@ header {
     text-align: center;
     padding: 20px 15px 15px 15px;
     position: relative;
-    height: 140px;
+    height: 90px;
     font-size: .5rem;
 }
 
 ul {
 	-webkit-padding-start: 0;
+}
+
+.add-to-default {
+	position: absolute; 
+	bottom: 0; 
+	background: #27ae60; 
+	width: 100%;
+	color: white;
+	height: 5%;
+	font-size: .3em;
+}
+
+.add-to-default h1 {
+	margin-top: .5em;
 }
 
 .recommendation {
@@ -364,7 +456,7 @@ recommendation h2, success h2 {
 
 .details h1 {
 	margin-top: 30px;
-	font-size: 3.5em;
+	font-size: 2.4em;
 	font-weight: bolder;
 	margin-bottom: 0;
 }
@@ -385,14 +477,14 @@ recommendation h2, success h2 {
 	width: 40%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: flex-end;
 }
 
 
 .recommender h3 {
-	font-size: 1.5em;
-	margin-top: 5.3em;
-	font-style: italic;
+	font-size: 1.6em;
+	color: #2fb80d;
+	margin-top: 4.5em;
 }
 
 .recommender img {
@@ -449,14 +541,31 @@ recommendation h2, success h2 {
     background-position-y: 1em;
 }
 
+create-playlist header {
+	background: white;
+}
+
+create-playlist body {
+	background: black;
+}
+
 .recommend-icon {
-	background-image: url(images/recommend.png);
+    width: 17%;
+    line-height: 320px;
+    margin: -6% 6% 0 6%;
+    border: solid 8px white;
+    border-radius: 8rem;
+    background: #27ae60;
+}
+
+.from-recommender {
+	font-size: .55em;
 }
 
 .menu-button {
     height: 6em;
     position: absolute;
-    top: 11em;
+    top: 6.5em;
     left: 10em;
 }
 

@@ -1,15 +1,34 @@
-<form class="new-recommendation" ng-submit="$ctrl.addPlaylist($ctrl.newPlaylist)">
-  <h1>Search by Track, Artist, or Album</h1>
-  <input ng-model="$ctrl.newPlaylist.title" type="text" name="title" placeholder="Song Title" />
-  <input ng-model="$ctrl.newPlaylist.artist" type="text" name="recCount" placeholder="Artist" />
+<form class="new-recommendation">
+  <input ng-if="!$ctrl.trackChosen" ng-model="$ctrl.query" type="text" id="ajax" placeholder="Search" ng-change="$ctrl.searchTracks($ctrl, $ctrl.query)">
+
+  <div ng-if="$ctrl.trackChosen" class="recommendation">
+    <div class="details">
+      <h1>{{$ctrl.selectedTrack.name}}</h1>
+      <h2>{{$ctrl.selectedTrack.artists[0].name}}</h2>
+    </div>
+    <button ng-click="$ctrl.unselectTrack($ctrl)">UNSELECT</button>
+  </div>
+
+  <div ng-if="$ctrl.trackChosen" class="art-container recview">
+    <img src="{{$ctrl.selectedTrack.album.images[0].url}}" />
+  </div>
+  <div id="iframe-container"></div>
+  <ul ng-if="!$ctrl.trackChosen">
+    <div class="recommendation" ng-repeat="track in $ctrl.results" ng-click="$ctrl.choseTrack($ctrl, track)">
+      <div class="album-art">
+        <img src="{{track.album.images[0].url}}" />
+      </div>
+      <div class="details">
+        <h1>{{track.name}}</h1>
+        <h2>{{track.artists[0].name}}</h2>
+      </div>
+    </div>
+  </ul>
 </form>
 
-<div class="art-container recview">
-  <img src="https://pixy.org/images/placeholder.png"/>
-</div>
 
-<textarea ng-model="$ctrl.newPlaylist.message" class="messager" name="comment" form="usrform" placeholder="    💬 Leave someone a message... "></textarea>
+<textarea ng-model="$ctrl.message" class="messager" name="comment" form="usrform" placeholder="    💬 Leave someone a message... "></textarea>
 
-<div class="submit-footer" ng-click="$ctrl.submit($ctrl.newPlaylist)">
+<div class="submit-footer" ng-click="$ctrl.submit($ctrl.selectedTrack, $ctrl.message, $ctrl.trackChosen)">
   <h1>Choose Friends</h1>
 </div>

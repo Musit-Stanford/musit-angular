@@ -1,10 +1,11 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import '../../startup/accounts-config.js';
 
 import template from './musit.html';
 import Trending from '../trending/trending';
-import playlist from '../playlist/playlist.js'; 
+import playlist from '../playlist/playlist.js';
 import createRecommendation from '../createRecommendation/createRecommendation';
 import friendList from '../friendList/friendList';
 import trendingList from '../trendingList/trendingList';
@@ -13,6 +14,7 @@ import playlistList from '../playlistList/playlistList';
 import createPlaylist from '../createPlaylist/createPlaylist';
 import Recommendation from '../recommendation/recommendation';
 import MusitHome from '../home/home';
+import Login from '../login/login';
 
 class Musit {
 }
@@ -23,15 +25,15 @@ const name = 'musit';
 export default angular.module(name, [
   angularMeteor,
   uiRouter,
-  Trending.name,
+  'accounts.ui',
   MusitHome.name,
   Recommendation.name,
   createRecommendation.name,
   friendList.name,
-  trendingList.name,
   success.name,
   playlist.name,
   createPlaylist.name,
+  Login.name,
   playlistList.name
 ]).config(config)
   .controller('MusitController', controller)
@@ -44,14 +46,21 @@ export default angular.module(name, [
 function config ($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/');
+  //  $urlRouterProvider.otherwise('/');
 
   var homeState = {
     name: 'home',
     url: '/',
-    template: '<home></home>'
+    template: '<home></home>',
   }
   $stateProvider.state(homeState);
+
+  var loginState = {
+    name: 'login',
+    url: '/login',
+    template: '<login></login>'
+  }
+  $stateProvider.state(loginState);
 
   var recommendationState = {
     name: 'recommendation',
@@ -88,20 +97,6 @@ function config ($locationProvider, $urlRouterProvider, $stateProvider) {
   }
   $stateProvider.state(successState);
 
-  var trendingState = {
-    name: 'trending',
-    url: '/trending',
-    template: '<trending></trending>'
-  }
-  $stateProvider.state(trendingState);
-
-  var trendingListState = {
-    name: 'trendingList',
-    url: '/trendingList',
-    template: '<trending-list></trending-list>'
-  }
-  $stateProvider.state(trendingListState);
-
   var playlistListState = {
     name: 'playlistList',
     url: '/playlistList/:playlistId',
@@ -115,7 +110,24 @@ function config ($locationProvider, $urlRouterProvider, $stateProvider) {
     template: '<create-playlist></create-playlist>'
   }
   $stateProvider.state(createPlaylistState);
+
+  var inboxState = {
+    name: 'inbox',
+    url: '/inbox',
+    template: '<inbox></inbox>'
+  }
+  $stateProvider.state(inboxState);
 }
 
 function controller($scope) {
 }
+
+
+Meteor.autorun(function () {
+  if (!Meteor.userId()) {} else {
+    if (window.location.pathname !== "/" && window.location.pathname !== "/friendList" && window.location.pathname !== "/success") {
+      window.location.href = "/";
+    } else {
+    }
+  }
+});

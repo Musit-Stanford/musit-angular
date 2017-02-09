@@ -1,6 +1,6 @@
 <div class="song-container">
   <div class="art-container">
-    <img src="https://pixy.org/images/placeholder.png"/>
+    <img src="{{$ctrl.recommendation.albumArtURL}}"/>
   </div>
   <div class="song-information">
     <h1>{{$ctrl.recommendation.title}}</h1>
@@ -10,6 +10,7 @@
     <h3>{{$ctrl.recommendation.message}}</h3>
     <div ng-repeat="friend in $ctrl.selectedFriends" class="song-recommender">
       <img src="{{friend}}"/>
+      <h1>{{friend.profile.name}}</h1>
     </div>
   </div>
   <div class="submit-footer" ui-sref="home">

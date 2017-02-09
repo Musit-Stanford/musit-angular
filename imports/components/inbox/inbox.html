@@ -1,0 +1,21 @@
+<ul>
+  <div class="friend" ng-repeat="friend in $ctrl.friends" ng-click="">
+    <div class="recommender friend-option">
+      <img src="{{friend.img}}"/>
+      <h3 style="order: 1" >{{friend.profile.name}}</h3>
+    </div>
+    <div class="playlist-options">
+      <h1>🙋‍♂️</h1>
+    </div>
+  </div>
+</ul>
+
+<div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">add</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating green" ui-sref="createPlaylist"><i class="large material-icons">playlist_add</i></a></li>
+      <li><a class="btn-floating blue" ui-sref="createRecommendation"><i class="large material-icons">send</i></a></li>
+    </ul>
+</div>
