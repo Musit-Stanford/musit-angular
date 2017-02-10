@@ -1,13 +1,17 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import template from './createRecommendation.html';
-import { Recommendations } from '../../api/recommendations.js';
+import {
+  Recommendations
+}
+from '../../api/recommendations.js';
 import uiRouter from 'angular-ui-router';
 
 
 class RecommenderCtrl {
-  constructor($scope, $stateParams) {
+  constructor($scope, $stateParams, $reactive) {
     'ngInject';
+    $reactive(this).attach($scope);
     $scope.viewModel(this);
     $scope.trackChosen = false;
 
@@ -16,22 +20,10 @@ class RecommenderCtrl {
         return Recommendations.find({});
       }
     })
-  }
-
-  searchTracks($scope, query) {
-    var url = "https://api.spotify.com/v1/search";
-    var options = {
-      params: {
-        q: query,
-        type: "artist,track"
-      }
+    
+    this.searchTracks = (scope, query) => {
+      this.call('searchSuggestions', query, (err, result) => {this.results = result});
     }
-    HTTP.get(url, options, function (error, result) {
-      if (error === null) {
-        var matchedTracks = result.data.tracks.items.slice(0, 20)
-        $scope.results = matchedTracks;
-      }
-    });
   }
 
   choseTrack($scope, track) {
@@ -46,6 +38,11 @@ class RecommenderCtrl {
     document.getElementById("iframe-container").appendChild(iframe)
   }
 
+//  searchTracks($scope, query) {
+//    console.log(query)
+//    Meteor.call('searchSuggestions', [query], (err, result) => {this.results = result})
+//  }
+
   unselectTrack($scope) {
     $scope.trackChosen = false;
   }
@@ -57,7 +54,7 @@ class RecommenderCtrl {
       artist: newRecommendation.artist,
       album: newRecommendation.album,
       album_art_url: newRecommendation.album_art_url,
-      from_user: Meteor.user()._id, 
+      from_user: Meteor.user()._id,
       createdAt: new Date
     });
 
@@ -82,7 +79,8 @@ class RecommenderCtrl {
       albumArtURL: track.album.images[0].url,
       spotifyID: track.id,
       message: message,
-      from_user: Meteor.user()._id // SECURITY ISSUE
+      from_user: Meteor.user()._id, // SECURITY ISSUE
+      from_user_name: Meteor.user().services.facebook.name
     }
     window.localStorage.setItem('inProgressForm', JSON.stringify(recommendation));
     window.location = "/friendList";
@@ -95,5 +93,5 @@ export default angular.module('createRecommendation', [
 ])
   .component('createRecommendation', {
     templateUrl: 'imports/components/createRecommendation/createRecommendation.html',
-    controller: ['$scope', '$stateParams', RecommenderCtrl] // Note to self: Injecting '$scope' into the controller.
+    controller: ['$scope', '$stateParams', '$reactive', RecommenderCtrl] // Note to self: Injecting '$scope' into the controller.
   });
