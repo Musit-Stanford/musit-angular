@@ -24,9 +24,13 @@ class FriendListCtrl {
     this.selectedFriends = {};
     this.helpers({
       friends() {
-        return Meteor.users.find().fetch();
+        return Meteor.users.find({_id: {$ne: Meteor.userId()}});
       },
     });
+  }
+  
+  queryForUsers() {
+    console.log(Meteor.users.find().fetch());
   }
 
   toggleFriend(friend) {

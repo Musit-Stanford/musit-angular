@@ -80,7 +80,7 @@ class RecommenderCtrl {
       spotifyID: track.id,
       message: message,
       from_user: Meteor.user()._id, // SECURITY ISSUE
-      from_user_name: Meteor.user().services.facebook.name
+      from_user_name: Meteor.user().name
     }
     window.localStorage.setItem('inProgressForm', JSON.stringify(recommendation));
     window.location = "/friendList";

@@ -124,6 +124,7 @@ function controller($scope) {
 
 
 Meteor.autorun(function () {
+  Meteor.subscribe("usersFriends");
   if (!Meteor.userId()) {} else {
     if (window.location.pathname !== "/" && window.location.pathname !== "/friendList" && window.location.pathname !== "/success") {
       window.location.href = "/";

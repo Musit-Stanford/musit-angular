@@ -41,7 +41,7 @@ Accounts.onCreateUser(function (options, user) {
 })
 
 Meteor.publish("usersFriends", function () {
-  return Meteor.users.find({$ne: this.userId});
+  return Meteor.users.find();
 })
 
 Meteor.methods({
