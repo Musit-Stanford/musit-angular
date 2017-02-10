@@ -1,4 +1,7 @@
- <ul>
+<header>
+  <h1>YOUR STACK</h1>
+</header>
+<ul>
   <div class="recommendation" ng-repeat="rec in $ctrl.recommendations" ui-sref="recommendation({recId: rec._id})">
   	<div class="album-art">
   		<img src="{{rec.albumArtURL}}"/>

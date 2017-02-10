@@ -41,7 +41,8 @@ class RecommendationCtrl {
   findUsername(id) {
     console.log(id);
     var recommender = Meteor.users.findOne({"_id": id}); 
-    return recommender.profile.name; 
+    console.log(recommender);
+    return recommender.name; 
   }
 
   addToDefault(track) {
