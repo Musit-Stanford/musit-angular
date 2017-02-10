@@ -1,7 +1,3 @@
-<header>
-  <h1>Hi, {{$ctrl.currentUser.services.facebook.name}}!</h1>
-</header>
- 
 <ul>
   <div class="recommendation" ng-repeat="rec in $ctrl.recommendations" ui-sref="recommendation({recId: rec._id})">
   	<div class="album-art">

@@ -9,7 +9,6 @@ import uiRouter from 'angular-ui-router';
 
 class MusitHomeCtrl {
   constructor($scope) {
-    console.log(Meteor.user());
     if (!Meteor.userId()) {
       window.location.href = '/login';
     }
