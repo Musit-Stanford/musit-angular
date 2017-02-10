@@ -37,8 +37,8 @@ export default angular.module(name, [
   Login.name,
   playlistList.name,
   Inbox.name
-]).config(config)
-  .controller('MusitController', controller)
+]).config(['$locationProvider', '$urlRouterProvider', '$stateProvider', config])
+  .controller('MusitController', ['$scope', controller])
   .component(name, {
     templateUrl: template,
     controllerAs: name,
