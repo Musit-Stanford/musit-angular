@@ -41,7 +41,7 @@ export default angular.module('playlist', [
   angularMeteor,
   uiRouter
 ])
-  .controller('PlaylistController', ['$scope', '$rootScope', '$stateParams', function($scope, $rootScope) {
+  .controller('PlaylistController', ['$scope', '$rootScope', '$stateParams', function($scope, $rootScope, $stateParams) {
     $rootScope.$broadcast('headerTextChanged', {text: 'playlists'});
   }])
   .component('playlists', {
