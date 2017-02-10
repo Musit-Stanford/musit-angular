@@ -36,6 +36,7 @@ class MusitHomeCtrl {
 
   findUsername(id) {
     var recommender = Meteor.users.findOne({"_id": id}); 
+    console.log(recommender); 
     return recommender.profile.name; 
   }
 }

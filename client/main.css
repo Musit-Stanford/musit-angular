@@ -46,7 +46,7 @@ article h1 {
   position: absolute;
   top: 30%;
   width: 100%;
-  font-size: 16rem;
+  font-size: 10rem;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
@@ -106,7 +106,6 @@ recommendation header h1 {
 success header h1 {
 	padding-bottom: 5px;
 	margin: 0;
-	margin-top: 3.5rem;
 	color: white;
 }
 
@@ -222,7 +221,7 @@ body {
 }
 
 .recview {
-	width: 45%;
+	width: 100%;
 	margin-top: 4rem;
 }
 
@@ -240,6 +239,7 @@ body {
  
 .new-recommendation input {
 	height: 10rem;
+	font-family: Quicksand;
 	margin: 3rem;
 	margin-left: 5rem;
 	font-size: 6rem;
@@ -262,15 +262,17 @@ body {
     width: 90%;
     margin: 0 auto;
     font-size: 4rem;
-    margin: 5rem;
+    margin: 2rem;
+	font-family: Quicksand;
+    text-align: left;
     margin-top: 8.5rem;
 }
 
 .submit-footer {
 	position: fixed;
 	bottom: 0;
-	height: 20rem;
-	background: #2ecc71;
+	height: 10rem;
+	background: #2c3e50;
 	text-align: center;
 	color: white;
 	width: 100%;
@@ -278,8 +280,8 @@ body {
 }
 
 .submit-footer h1 {
-	font-size: 7rem;
-	margin-top: 6rem;
+    font-size: 4rem;
+    margin-top: 2.5rem;
 }
 
 .ng-scope { 

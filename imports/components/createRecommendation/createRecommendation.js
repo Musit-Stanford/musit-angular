@@ -75,14 +75,14 @@ class RecommenderCtrl {
     if (message === undefined || message === "") {
       message = "I think you'll like this song!"
     }
-    console.log(Meteor.user().name);
+    console.log(Meteor.user());
     var recommendation = {
       title: track.name,
       artist: track.artists[0].name,
       albumArtURL: track.album.images[0].url,
       spotifyID: track.id,
       message: message,
-      from_user: Meteor.user().profile.name // SECURITY ISSUE
+      from_user: Meteor.user()._id // SECURITY ISSUE
     }
     window.localStorage.setItem('inProgressForm', JSON.stringify(recommendation));
     window.location = "/friendList";
