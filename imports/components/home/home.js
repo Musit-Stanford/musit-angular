@@ -29,16 +29,16 @@ class MusitHomeCtrl {
       },
       currentUser() {
         return Meteor.user();
+      },
+      screenTitle() {
+        return 'Your Stack';
       }
     });
   }
 
   findUsername(id) {
     var recommender = Meteor.users.findOne({"_id": id}); 
-    console.log(recommender); 
-    // return recommender.profile.name; 
-    // console.log(Meteor.users.find().fetch({})); 
-    return recommender.services.facebook.name;
+    return recommender.name;
   }
 }
 
