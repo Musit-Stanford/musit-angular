@@ -15,6 +15,7 @@ import createPlaylist from '../createPlaylist/createPlaylist';
 import Recommendation from '../recommendation/recommendation';
 import MusitHome from '../home/home';
 import Login from '../login/login';
+import Inbox from '../inbox/inbox';
 
 class Musit {
 }
@@ -34,13 +35,13 @@ export default angular.module(name, [
   playlist.name,
   createPlaylist.name,
   Login.name,
-  playlistList.name
-]).config(config)
-  .controller('MusitController', controller)
+  playlistList.name,
+  Inbox.name
+]).config(['$locationProvider', '$urlRouterProvider', '$stateProvider', config])
   .component(name, {
     templateUrl: template,
     controllerAs: name,
-    controller: 'MusitController'
+    controller: ['$scope', Musit]
   })
 
 function config ($locationProvider, $urlRouterProvider, $stateProvider) {
@@ -118,10 +119,6 @@ function config ($locationProvider, $urlRouterProvider, $stateProvider) {
   }
   $stateProvider.state(inboxState);
 }
-
-function controller($scope) {
-}
-
 
 Meteor.autorun(function () {
   Meteor.subscribe("usersFriends");

@@ -6,13 +6,10 @@ import uiRouter from 'angular-ui-router';
 class InboxCtrl {
 	constructor($scope, $stateParams) {
 		'ngInject';
-		this.helpers({
+		$scope.viewModel(this);
+      	this.helpers({
       		friends() {
-        		return Meteor.users.find({
-          			_id: {
-            			$ne: Meteor.userId()
-          			}
-        		});
+        		return Meteor.users.find({_id: {$ne: Meteor.userId()}});
       		},
     	});
 	}
