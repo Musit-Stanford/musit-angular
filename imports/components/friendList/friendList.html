@@ -1,11 +1,11 @@
 <ul>
   <div class="friend" ng-repeat="friend in $ctrl.friends" ng-click="$ctrl.toggleFriend(friend); toggle = !toggle;" ng-class="{'selected': toggle}">
     <div class="recommender friend-option">
-      <img src="{{friend.img}}"/>
+      <img src="{{friend.imageURL}}"/>
       <h3 style="order: 1" >{{friend.name}}</h3>
     </div>
     <div class="playlist-options">
-      <h1>🙋‍♂️</h1>
+      <h1></h1>
     </div>
   </div>
 </ul>

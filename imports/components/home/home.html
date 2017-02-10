@@ -1,8 +1,4 @@
-<header>
-  <h1>Hi, {{$ctrl.currentUser.services.facebook.name}}!</h1>
-</header>
- 
-<ul>
+ <ul>
   <div class="recommendation" ng-repeat="rec in $ctrl.recommendations" ui-sref="recommendation({recId: rec._id})">
   	<div class="album-art">
   		<img src="{{rec.albumArtURL}}"/>
@@ -26,11 +22,11 @@
 </ul> -->
 
 <div class="fixed-action-btn horizontal click-to-toggle">
-    <a class="btn-floating btn-large red">
+    <a class="btn-floating btn-large fab red">
       <i class="large material-icons">add</i>
     </a>
-    <ul>
-      <li><a class="btn-floating green" ui-sref="createPlaylist"><i class="large material-icons">playlist_add</i></a></li>
-      <li><a class="btn-floating blue" ui-sref="createRecommendation"><i class="large material-icons">send</i></a></li>
+    <ul class="fab-menu">
+      <li><a class="btn-floating fab-click green" ui-sref="createPlaylist"><i class="large material-icons send-icons">playlist_add</i></a></li>
+      <li><a class="btn-floating fab-click blue" ui-sref="createRecommendation"><i class="large material-icons send-icons">send</i></a></li>
     </ul>
 </div>

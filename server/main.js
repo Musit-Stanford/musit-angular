@@ -27,6 +27,16 @@ Accounts.onCreateUser(function (options, user) {
     title: "Default"
   });
   user.name = user.services.facebook.name;
+  var url = "https://graph.facebook.com/v2.8/me";
+  var options = {
+	  params: {
+	    fields: "name,picture",
+	    access_token: user.services.facebook.accessToken
+	  }
+	}
+  var results = HTTP.get(url, options).data;
+  user.imageURL = results.picture.data.url;
+  // console.log(results)
   return user;
 })
 

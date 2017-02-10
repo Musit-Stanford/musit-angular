@@ -24,7 +24,7 @@ class FriendListCtrl {
     this.selectedFriends = {};
     this.helpers({
       friends() {
-        return Meteor.users.find();
+        return Meteor.users.find().fetch();
       },
     });
   }
