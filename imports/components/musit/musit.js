@@ -38,11 +38,10 @@ export default angular.module(name, [
   playlistList.name,
   Inbox.name
 ]).config(['$locationProvider', '$urlRouterProvider', '$stateProvider', config])
-  .controller('MusitController', ['$scope', controller])
   .component(name, {
     templateUrl: template,
     controllerAs: name,
-    controller: 'MusitController'
+    controller: ['$scope', Musit]
   })
 
 function config ($locationProvider, $urlRouterProvider, $stateProvider) {
@@ -120,10 +119,6 @@ function config ($locationProvider, $urlRouterProvider, $stateProvider) {
   }
   $stateProvider.state(inboxState);
 }
-
-function controller($scope) {
-}
-
 
 Meteor.autorun(function () {
   Meteor.subscribe("usersFriends");
