@@ -16,12 +16,13 @@ import Recommendation from '../recommendation/recommendation';
 import MusitHome from '../home/home';
 import Login from '../login/login';
 
-class Musit {}
+class Musit {
+}
 
 const name = 'musit';
 
 // create a module
-var musit = angular.module(name, [
+export default angular.module(name, [
   angularMeteor,
   uiRouter,
   'accounts.ui',
@@ -34,15 +35,15 @@ var musit = angular.module(name, [
   createPlaylist.name,
   Login.name,
   playlistList.name
-]);
+]).config(config)
+  .controller('MusitController', controller)
+  .component(name, {
+    templateUrl: template,
+    controllerAs: name,
+    controller: 'MusitController'
+  })
 
-musit.component(name, {
-  templateUrl: template,
-  erAs: name,
-  controller: ['$scope', Musit]
-});
-
-musit.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', function ($locationProvider, $urlRouterProvider, $stateProvider) {
+function config ($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
   //  $urlRouterProvider.otherwise('/');
@@ -109,7 +110,17 @@ musit.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', funct
     template: '<create-playlist></create-playlist>'
   }
   $stateProvider.state(createPlaylistState);
-}]);
+
+  var inboxState = {
+    name: 'inbox',
+    url: '/inbox',
+    template: '<inbox></inbox>'
+  }
+  $stateProvider.state(inboxState);
+}
+
+function controller($scope) {
+}
 
 
 Meteor.autorun(function () {

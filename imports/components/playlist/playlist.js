@@ -3,13 +3,13 @@ import angularMeteor from 'angular-meteor';
 import template from './playlist.html';
 import { Playlists } from '../../api/playlists.js';
 import uiRouter from 'angular-ui-router';
+import musit from '../musit/musit.js';
 
 class PlaylistCtrl {
-  constructor($scope, $stateParams) {
+  constructor($scope, $rootScope, $stateParams) {
     'ngInject'
-
     $scope.viewModel(this);
-
+    $rootScope.$broadcast('headerTextChanged', {text: 'playlists'});
     this.helpers({
       playlists() {
         return Playlists.find({owner: Meteor.userId()});
@@ -36,11 +36,15 @@ class PlaylistCtrl {
     this.newPlaylist.albumArtURL = "";
   }
 }
+
 export default angular.module('playlist', [
   angularMeteor,
   uiRouter
 ])
+  .controller('PlaylistController', ['$scope', '$rootScope', '$stateParams', function($scope, $rootScope) {
+    $rootScope.$broadcast('headerTextChanged', {text: 'playlists'});
+  }])
   .component('playlists', {
     templateUrl: 'imports/components/playlist/playlist.html',
-    controller: ['$scope', '$stateParams', PlaylistCtrl] // Note to self: Injecting '$scope' into the controller.
+    controller: PlaylistCtrl
   });

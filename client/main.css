@@ -564,8 +564,8 @@ create-playlist body {
 	font-size: .55em;
 }
 
-.back-button {
-    height: 4em;
+.menu-button {
+    height: 6em;
     position: absolute;
     top: 6.5em;
     left: 10em;

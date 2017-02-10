@@ -1,11 +1,11 @@
-<ul class="playlistContainer">
-  <div class="recommendation" ng-repeat="playlist in $ctrl.playlists" ui-sref="playlistList({playlistId: playlist._id})">
-    <div class="album-art">
-      <img src="http://placehold.it/200x200" />
+<ul>
+  <div class="friend" ng-repeat="friend in $ctrl.friends" ng-click="">
+    <div class="recommender friend-option">
+      <img src="{{friend.img}}"/>
+      <h3 style="order: 1" >{{friend.profile.name}}</h3>
     </div>
-    <div class="details">
-      <h1 id="playlist-title">{{playlist.title}}</h1>
-      <h2></h2>
+    <div class="playlist-options">
+      <h1>🙋‍♂️</h1>
     </div>
   </div>
 </ul>

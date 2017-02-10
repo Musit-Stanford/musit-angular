@@ -15,7 +15,6 @@ class MusitHomeCtrl {
     }
 
     $scope.viewModel(this);
-
     this.helpers({
       recommendations() {
         var userId = Meteor.user();
@@ -37,7 +36,9 @@ class MusitHomeCtrl {
   findUsername(id) {
     var recommender = Meteor.users.findOne({"_id": id}); 
     console.log(recommender); 
-    return recommender.profile.name; 
+    // return recommender.profile.name; 
+    // console.log(Meteor.users.find().fetch({})); 
+    return recommender.services.facebook.name;
   }
 }
 
