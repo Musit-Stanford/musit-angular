@@ -118,7 +118,7 @@ header h1 {
   text-transform: uppercase; 
   font-size: 36px;
   text-align: center;
-  line-height: 10px;
+  line-height: 20px;
 }
 
 .playlistContainer, .album-art {
@@ -260,6 +260,12 @@ body {
 .send-icons {
 	font-size: 2.6rem !important;
     line-height: 90px !important;
+}
+
+.big-menu {
+	font-size: 34px !important;
+    height: 20% !important;
+    line-height: 118px !important;
 }
 
 .new-recommendation input {
