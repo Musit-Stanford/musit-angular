@@ -15,6 +15,7 @@ import createPlaylist from '../createPlaylist/createPlaylist';
 import Recommendation from '../recommendation/recommendation';
 import MusitHome from '../home/home';
 import Login from '../login/login';
+import Inbox from '../inbox/inbox';
 
 class Musit {
 }
@@ -34,7 +35,8 @@ export default angular.module(name, [
   playlist.name,
   createPlaylist.name,
   Login.name,
-  playlistList.name
+  playlistList.name,
+  Inbox.name
 ]).config(config)
   .controller('MusitController', controller)
   .component(name, {

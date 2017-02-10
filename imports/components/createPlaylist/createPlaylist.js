@@ -43,7 +43,7 @@ class CreatePlaylistCtrl {
             title: doc.title
           }
         }}, {}, function (err, doc) {
-        window.location = '/';
+        window.location = '/playlist';
       });
     });
 
