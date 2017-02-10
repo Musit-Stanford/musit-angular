@@ -1,5 +1,5 @@
 <form class="new-recommendation">
-  <input ng-if="!$ctrl.trackChosen" ng-model="$ctrl.query" type="text" id="ajax" placeholder="Search" ng-change="$ctrl.searchTracks($ctrl, $ctrl.query)">
+  <input autocomplete="off" ng-if="!$ctrl.trackChosen" ng-model="$ctrl.query" type="text" id="ajax" placeholder="Search" ng-change="$ctrl.searchTracks($ctrl, $ctrl.query)">
 
   <div ng-if="$ctrl.trackChosen" class="recommendation">
     <div class="details">
@@ -13,18 +13,19 @@
     <img src="{{$ctrl.selectedTrack.album.images[0].url}}" />
   </div>
   <div id="iframe-container"></div>
-  <ul ng-if="!$ctrl.trackChosen">
-    <div class="recommendation" ng-repeat="track in $ctrl.results" ng-click="$ctrl.choseTrack($ctrl, track)">
-      <div class="album-art">
-        <img src="{{track.album.images[0].url}}" />
-      </div>
-      <div class="details">
-        <h1>{{track.name}}</h1>
-        <h2>{{track.artists[0].name}}</h2>
-      </div>
-    </div>
-  </ul>
 </form>
+
+<ul ng-if="!$ctrl.trackChosen">
+  <div class="recommendation" ng-repeat="track in $ctrl.results" ng-click="$ctrl.choseTrack($ctrl, track)">
+    <div class="album-art">
+      <img src="{{track.album.images[0].url}}" />
+    </div>
+    <div class="details">
+      <h1>{{track.name}}</h1>
+      <h2>{{track.artists[0].name}}</h2>
+    </div>
+  </div>
+</ul>
 
 
 <textarea ng-model="$ctrl.message" class="messager" name="comment" form="usrform" placeholder="    💬 Leave someone a message... "></textarea>

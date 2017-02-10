@@ -1,8 +1,17 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Users } from '../../api/accounts.js';
-import { Recommendations } from '../../api/recommendations.js';
-import { Playlists } from '../../api/playlists.js';
+import {
+  Users
+}
+from '../../api/accounts.js';
+import {
+  Recommendations
+}
+from '../../api/recommendations.js';
+import {
+  Playlists
+}
+from '../../api/playlists.js';
 
 import template from './friendList.html';
 import uiRouter from 'angular-ui-router';
@@ -15,11 +24,7 @@ class FriendListCtrl {
     this.selectedFriends = {};
     this.helpers({
       friends() {
-        return Meteor.users.find({
-          _id: {
-            $ne: Meteor.userId()
-          }
-        });
+        return Meteor.users.find();
       },
     });
   }
@@ -39,7 +44,10 @@ class FriendListCtrl {
     console.log(this.selectedFriends);
     Object.keys(this.selectedFriends).forEach(function (friendId) {
       recommendation.to_user = friendId;
-      var defaultPlaylist = Playlists.findOne({"owner": friendId, "title": "Default"});
+      var defaultPlaylist = Playlists.findOne({
+        "owner": friendId,
+        "title": "Default"
+      });
       recommendation.playlistId = defaultPlaylist._id;
       Recommendations.insert(recommendation);
     });
