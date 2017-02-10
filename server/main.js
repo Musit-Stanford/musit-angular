@@ -8,8 +8,11 @@ Meteor.startup(() => {
 });
 
 Accounts.onCreateUser(function(options, user) {
-    Playlists.insert({owner: user._id, title: "Default"});
-
-  // Don't forget to return the new user object at the end!
+  Playlists.insert({owner: user._id, title: "Default"});
+  user.name = user.services.facebook.name;
   return user;
+})
+
+Meteor.publish("usersFriends", function() {
+  return Meteor.users.find();
 })
